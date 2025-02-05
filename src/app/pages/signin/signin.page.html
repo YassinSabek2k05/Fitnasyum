@@ -13,8 +13,8 @@
       <ion-col size="1"></ion-col>
       <ion-col size="10">
         <form>
-          <ion-input [(ngModel)]="login.username" label="Mobile" type="text" name="username" labelPlacement="stacked" placeholder="Enter Your Phone Number"></ion-input>
-          <ion-input [(ngModel)]="login.password" label="Password" name="password" placeholder="Enter Your Password" labelPlacement="stacked" type="Password"></ion-input>
+          <ion-input [(ngModel)]="phone" label="Mobile" type="text" name="username" labelPlacement="stacked" placeholder="Enter Your Phone Number"></ion-input>
+          <ion-input [(ngModel)]="password" label="Password" name="password" placeholder="Enter Your Password" labelPlacement="stacked" type="Password"></ion-input>
           <div class="forgot-password"><a href="/forgot-password">Forgot Password?</a></div>
           <ion-button (click)="onLogin()" type="submit" shape="round">Sign In</ion-button>
         </form>
@@ -32,3 +32,17 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+<ion-alert
+  [isOpen]="phoneError"
+  header="Invalid Phone Number"
+  subHeader="Phone number should be 11 digits and contain only numbers."
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
+</ion-alert>
+<ion-alert
+  [isOpen]="passwordError"
+  header="Invalid Password"
+  subHeader="Password should be at least 8 characters long."
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
+</ion-alert>

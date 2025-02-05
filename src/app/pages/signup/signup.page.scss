@@ -38,10 +38,22 @@
     border: 1px solid var(--ion-color-bordercolor);
     margin-bottom: 20px;
 }
+.focus{
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0px;
+  border: 1px solid var(--ion-color-primary);
+  margin-bottom: 20px;
+}
   .end {
     width: 100%;
     display: flex;
-
+    bottom:0;
   }
   .end ion-button{
     --color: var(--ion-color-textcolor);
@@ -142,6 +154,7 @@
     align-items: center;
   }
   ion-input {
+    font-size: larger;
     border:0;
     border-bottom: 1.6px solid #fff;
     color: #fff;
@@ -149,4 +162,8 @@
     margin: 0 auto;
     margin-bottom: 15px;
   }
-  
+  ion-button:active{
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-textcolor);
+    --border-width:0px;
+  }

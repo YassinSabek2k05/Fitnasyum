@@ -7,13 +7,29 @@ import { Component, OnInit } from '@angular/core';
   standalone: false
 })
 export class SigninPage implements OnInit {
-  login: any = { username: '', password: '' };
+  alertButtons = ['Retry'];
+  phone: string = '';
+  password: string = '';
+  phoneError: boolean = false;
+  passwordError: boolean = false;
   constructor() { }
   onLogin(){
-    console.log('user name:', this.login.username );
-    console.log('user password', this.login.password );
-  }
+    if(this.phone.length != 11 || !isNaN(Number(this.phone))){
+      this.phoneError = true; 
+    }
+    else if(this.password.length <= 8){
+      this.passwordError = true;
+    }
+    else{
+      console.log('Phone Number:', this.phone);
+      console.log('user password', this.password);
+    }
+    }
   ngOnInit() {
+  }
+  clear(){
+    this.phone = '';
+    this.password = '';
   }
 
 }
