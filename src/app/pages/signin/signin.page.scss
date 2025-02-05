@@ -1,0 +1,84 @@
+.background{
+    margin: 0;
+    background:linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.5)20%, 
+        rgba(0, 0, 0, 1)80%
+    ),  url('/assets/imgs/bg.png') no-repeat  ;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+ion-grid{
+    margin-top: 30%;
+}
+h1{
+    color: var(--ion-color-textcolor);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+p{
+    color: var(--ion-color-textcolor);
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+}
+.forgot-password{
+    width: 100%;
+    text-align: right;
+    margin-top: 25px;
+}
+.formCont a{
+    text-decoration: none;
+    color: rgb(170, 170, 170);
+    margin-top: 5px;
+}
+ion-button{
+    --background: var(--ion-color-primary);
+    --color: #000;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-top: 20px;
+    align-items: center;
+    --color:var(--ion-color-textcolor);
+}
+ion-button{
+    margin-top: 30px;
+    --background: #00E98B;
+    
+}
+.forgot-password a{
+    color: rgb(170, 170, 170);
+    font-size: 1rem;
+}
+ion-grid{
+    margin-top: 40%;
+}
+ion-input {
+  border:0;
+  border-bottom: 1.6px solid #fff;
+  color: #fff;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.signup{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 20px;
+}
+.signup p{
+    color: #fff;
+    font-size: 0.8rem;
+}
+a{
+    text-decoration: none;
+    color: #00E98B;
+}
+
