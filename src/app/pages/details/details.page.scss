@@ -1,0 +1,169 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
+
+.prev{
+  font-size: 2em;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.birth-date-picker{
+    display:flex;
+    justify-content:center;
+}
+.pickerCont {
+    position: relative;
+    display: inline-block;
+}
+  
+.lines {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px; 
+  background-color: var(--ion-color-primary);
+  z-index: 10;
+}
+  
+.top-line {
+  top: 40%;
+}
+
+.bottom-line {
+  top: 58%;
+}
+.gender-selection{
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin:0 auto;
+    max-width: 100vw;
+}
+.gender-selection ion-item{
+  padding: 0;
+}
+.gender-selection ion-radio{
+    display:none;
+    --border-width:0px;
+}
+.col{
+  max-width: 50%; ;
+}
+h1{
+  font-size: 2em;
+  width: 100%;
+  text-align: left;
+}
+.gender-selection h1{
+  width: 100%;
+  text-align: center;
+}
+.genderCircle{
+    border-width:2px;
+    border-color:var(--ion-color-bordercolor);
+    border-style:solid;
+    border-radius:50%;
+    width: 35vw;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: var(--ion-color-bordercolor);
+    padding: 0;
+}
+.genderCircle ion-radio{
+    display: none;
+    width:0;
+    --background-color: var(--ion-color-primary);
+    background-color: none;
+}
+.genderCircle ion-icon{
+    font-size: 5em;
+    color: var(--ion-color-primary);
+    margin: 0 auto;
+    --border-width:0px;
+}
+
+.focus{
+    border-color: var(--ion-color-primary)!important;
+    border-width: 6px;
+    background-color: none;
+} 
+.swiper{
+    width: 100%;
+    height: 100%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+.topText{
+  margin-bottom: 5vh;
+}
+ion-progress-bar{
+  --background: var(--ion-color-bordercolor);
+  --buffer-background: var(--ion-color-primary);
+  margin-top: 2vh;
+  --width: 80%;
+  margin: 2vh auto;
+  height: 4px;
+}
+.genders h1{
+  width: 100%;
+  text-align: center;
+}
+.btnCont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  width: 100%;
+}
+.btnCont ion-button{
+  width: 80%;
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-textcolor);
+  --border-radius: 20px;
+  --border-width: 0px;
+  --box-shadow: none;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  margin: 0 auto;
+
+}
+.fatCont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5vh;
+  width: 100%;
+}
+.fats ion-label{
+  width: auto;
+  text-align: center;
+  padding: 0.5em 1em ;
+}
+.fats ion-img{
+  width: 4vw;
+  height: 50%;
+  margin: 0 auto;
+}
+.UNDERWEIGHT ion-label{
+  background: #3399FF;
+}
+.NORMAL ion-label{
+  background: #00FF00;
+}
+.OVERWEIGHT ion-label{
+  background: #FFA500;
+}
+.OBESE ion-label{
+  background: #FF0000;
+}
+.EXTREMELY_OBESE ion-label{
+  background: #FF0000;
+}

@@ -50,7 +50,7 @@ ion-button{
 }
 ion-button{
     margin-top: 30px;
-    --background: #00E98B;
+    --background: var(--ion-color-primary);
     
 }
 .forgot-password a{
@@ -62,7 +62,7 @@ ion-grid{
 }
 ion-input {
   border:0;
-  border-bottom: 1.6px solid #fff;
+  border-bottom: 1.6px solid var(--ion-color-bordercolor);
   color: #fff;
   width: 100%;
   margin: 0 auto;

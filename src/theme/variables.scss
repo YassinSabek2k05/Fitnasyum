@@ -7,8 +7,20 @@
     box-sizing: border-box;
     margin:0;
     padding: 0;
+  --border-color: var(--ion-color-background);
+  --picker-highlight-background: #000; /* Background color */
+  --picker-highlight-color: var(--ion-color-primary); /* Text color */
+  --input-wrapper:var(--ion-color-background);
+
   }
+  ion-input{
+    --border-color: var(--ion-color-bordercolor);
+    --color: var(--ion-color-textcolor);
+  }
+  
   :root {
+    --picker-highlight-background: rgba(0, 123, 255, 0.1); /* Background color */
+    --picker-highlight-color: #007bff; /* Text color */
       --ion-color-primary: #00E98B;
       --ion-color-secondary: #E0FF00;
       --ion-color-tertiary: #007FE6;

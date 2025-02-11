@@ -1,0 +1,210 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="prev" size="1">
+        <ion-icon (click)="goPrev()" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="11"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-progress-bar [value]="progress"></ion-progress-bar>
+    </ion-row>
+    <ion-row class="swiper">
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+      <swiper-container #swiper [allowTouchMove]="false">
+        <swiper-slide>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="1"></ion-col>
+              <ion-col class="topText" size="10">
+                <h1>Gender</h1>
+                <p>Help us to create your personalized plan.</p>
+              </ion-col>
+              <ion-col size="1"></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="col" size="6">
+                    <div class="genders">
+                    <ion-item (click)="femaleSelect()">
+                      <div [ngClass]="genderFocus('female')" class="genderCircle">
+                        <ion-icon name="woman-outline"></ion-icon>
+                        <ion-radio id="male" slot="start" value="male"></ion-radio>
+                      </div>       
+                    </ion-item>
+                    <h1>Female</h1>
+                  </div>
+              </ion-col>
+              <ion-col size="6">
+                  <div class="genders">
+                    <ion-item (click)="maleSelect()">    
+                      <div [ngClass]="genderFocus('male')" class="genderCircle">
+                        <ion-icon name="man-outline"></ion-icon>
+                        <ion-radio id="female" slot="start" value="female"></ion-radio>
+                      </div>
+                    </ion-item>
+                    <h1>Male</h1>
+                  </div>
+                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </swiper-slide>
+      <swiper-slide>      
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col class="topText" size="10">
+              <h1>What is your birthdate?</h1>
+              <p>Help us to create your personalized plan.</p>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <div class="birth-date-picker">
+                <ion-picker>
+                  <div class="pickerCont">
+                    <div class="lines top-line"></div>
+                    <div class="lines bottom-line"></div>
+                    <ion-picker-column value="" (ionChange)="onDayChange($event)">
+                      <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+                      @for (day of days; track day) {
+                        <ion-picker-column-option value={{day}}>{{day}}</ion-picker-column-option>
+                        }
+                    </ion-picker-column>
+                  </div>
+                  </ion-picker>
+                  <ion-picker>
+                    <div class="pickerCont">
+                      <div class="lines top-line"></div>
+                      <div class="lines bottom-line"></div>
+                    <ion-picker-column value=""  (ionChange)="onMonthChange($event)">
+                      <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+                      <ion-picker-column-option value="January">Jan</ion-picker-column-option>
+                      <ion-picker-column-option value="February">Feb</ion-picker-column-option>
+                      <ion-picker-column-option value="March">Mar</ion-picker-column-option>
+                      <ion-picker-column-option value="April">Apr</ion-picker-column-option>
+                      <ion-picker-column-option value="May">May</ion-picker-column-option>
+                      <ion-picker-column-option value="June">Jun</ion-picker-column-option>
+                      <ion-picker-column-option value="July">Jul</ion-picker-column-option>
+                      <ion-picker-column-option value="August">Aug</ion-picker-column-option>
+                      <ion-picker-column-option value="September">Sep</ion-picker-column-option>
+                      <ion-picker-column-option value="October">Oct</ion-picker-column-option>
+                      <ion-picker-column-option value="November">Nov</ion-picker-column-option>
+                      <ion-picker-column-option value="December">Dec</ion-picker-column-option>
+                    </ion-picker-column>
+                    </div>
+                  </ion-picker>
+                  <ion-picker>
+                    <div class="pickerCont">
+                      <div class="lines top-line"></div>
+                      <div class="lines bottom-line"></div>
+                    <ion-picker-column value="year" (ionChange)="onYearChange($event)">
+                      <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+                      @for (year of years; track year) {
+                        <ion-picker-column-option value={{year}}>{{year}}</ion-picker-column-option>
+                        }
+                    </ion-picker-column>
+                    </div>
+                  </ion-picker>
+                </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </swiper-slide>
+      <swiper-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col class="topText" size="10">
+              <h1>What is your weight?</h1>
+              <p>Help us to create your personalized plan.</p>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="10">
+              <ion-picker>
+                <ion-range aria-label="Custom range" [value]="50" [pin]="true"></ion-range>
+              </ion-picker>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+        </ion-grid>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="1"></ion-col>
+          <ion-col class="topText" size="10">
+            <h1>What is your height?</h1>
+            <p>Help us to create your personalized plan.</p>
+          </ion-col>
+          <ion-col size="12">
+            <ion-picker>
+              <ion-picker-column value="" (ionChange)="onHeightChange($event)">
+                <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+                @for (height of heights; track height) {
+                  <ion-picker-column-option value={{height}}>{{height}}</ion-picker-column-option>
+                  }
+              </ion-picker-column>
+            </ion-picker>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+  </swiper-slide>
+  <swiper-slide>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col class="topText" size="10">
+          <h1>What is the percentage of fat in your body?</h1>
+          <p>Help us to create your personalized plan.</p>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+      
+    </ion-grid>
+</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+      </swiper-container>
+    </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="btnCont">
+          <ion-button  shape="round" (click)="goNext()">Next</ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="fatCont" size="12">
+        <div class="UNDERWEIGHT fats">
+          <ion-img src="assets/imgs/fats/Path 4001.png"></ion-img>
+          <ion-label>UNDERWEIGHT</ion-label>
+        </div>
+        <div class="NORMAL fats">
+          <ion-img src="assets/imgs/fats/Path 3997.png"></ion-img>
+          <ion-label>NORMAL</ion-label>
+        </div>
+        <div class="OVERWEIGHT fats">
+          <ion-img src="assets/imgs/fats/Path 3998.png"></ion-img>
+          <ion-label>OVERWEIGHT</ion-label>
+        </div>
+        <div class="OBESE fats">
+          <ion-img src="assets/imgs/fats/Path 3999.png"></ion-img>
+          <ion-label>OBESE</ion-label>
+        </div>
+        <div class="EXTREMELY_OBESE fats">
+          <ion-img src="assets/imgs/fats/Path 4000.png"></ion-img>
+          <ion-label>EXTREMELY OBESE</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
