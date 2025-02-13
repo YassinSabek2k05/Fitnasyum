@@ -141,6 +141,16 @@ export class DetailsPage implements OnInit {
   }
   onHeightChange(event: CustomEvent) {
     console.log(event.detail.value);
+  } 
+  fatLevel: number = 0;
+  focusFat(i:number){
+    if(i == this.fatLevel)
+      return "clickedFat";
+    return "";
+  }
+  selectFat(i:number){
+    this.fatLevel = i;
+    console.log(i);
   }
   constructor() {
    }

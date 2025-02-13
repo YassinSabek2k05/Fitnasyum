@@ -166,43 +166,82 @@
         </ion-col>
         <ion-col size="1"></ion-col>
       </ion-row>
-      
+      <ion-row>
+        <ion-col size="0.5"></ion-col>
+        <ion-col size="11">
+          <ion-grid>
+            <ion-row>
+              <ion-col (click)="selectFat(1)" [ngClass]="focusFat(1)" size="2">
+                <ion-img src="assets/imgs/fats/Path 4001.png"></ion-img>
+              </ion-col>
+              <ion-col size="0.5">
+                <div class="vr"></div>
+              </ion-col>
+              <ion-col (click)="selectFat(2)" [ngClass]="focusFat(2)" size="2">
+                <ion-img src="assets/imgs/fats/Path 3997.png"></ion-img>
+              </ion-col>
+              <ion-col size="0.5">
+                <div class="vr"></div>
+              </ion-col>
+              <ion-col (click)="selectFat(3)" [ngClass]="focusFat(3)" size="2">
+                <ion-img src="assets/imgs/fats/Path 3998.png"></ion-img>
+              </ion-col>
+              <ion-col size="0.5">
+                <div class="vr"></div>
+              </ion-col>
+              <ion-col (click)="selectFat(4)" [ngClass]="focusFat(4)" size="2">
+                <ion-img src="assets/imgs/fats/Path 3999.png"></ion-img>
+              </ion-col>
+              <ion-col size="0.5">
+                <div class="vr"></div>
+              </ion-col>
+              <ion-col (click)="selectFat(5)" [ngClass]="focusFat(5)" size="2">
+                <ion-img src="assets/imgs/fats/Path 4000.png"></ion-img>
+              </ion-col>
+            </ion-row>
+            <ion-row class="textRow">
+              <ion-col class="textCol" size="12/5">
+                <div class="UNDERWEIGHT">
+                <ion-label>UNDERWEIGHT</ion-label>
+                </div>
+              </ion-col>
+              <ion-col class="textCol" size="12/5">
+                <div class="NORMAL">
+                <ion-label>NORMAL</ion-label>
+                </div>
+              </ion-col>
+              <ion-col class="textCol" size="12/5">
+                <div class="OVERWEIGHT">
+                <ion-label>OVERWEIGHT</ion-label>
+                </div>
+              </ion-col>
+              <ion-col class="textCol" size="12/5">
+                <div class="OBESE fats">
+                <ion-label>OBESE</ion-label>
+                </div>
+              </ion-col>
+              <ion-col class="textCol" size="12/5">
+                <div>
+                 <ion-label>EXTREMELY_OBESE</ion-label>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-col size="0.5"></ion-col>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
     </ion-grid>
 </swiper-slide>
         <swiper-slide>Slide 3</swiper-slide>
       </swiper-container>
     </ion-col>
-      <ion-col size="1"></ion-col>
+      <ion-col size="2"></ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12">
         <ion-item class="btnCont">
           <ion-button  shape="round" (click)="goNext()">Next</ion-button>
         </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="fatCont" size="12">
-        <div class="UNDERWEIGHT fats">
-          <ion-img src="assets/imgs/fats/Path 4001.png"></ion-img>
-          <ion-label>UNDERWEIGHT</ion-label>
-        </div>
-        <div class="NORMAL fats">
-          <ion-img src="assets/imgs/fats/Path 3997.png"></ion-img>
-          <ion-label>NORMAL</ion-label>
-        </div>
-        <div class="OVERWEIGHT fats">
-          <ion-img src="assets/imgs/fats/Path 3998.png"></ion-img>
-          <ion-label>OVERWEIGHT</ion-label>
-        </div>
-        <div class="OBESE fats">
-          <ion-img src="assets/imgs/fats/Path 3999.png"></ion-img>
-          <ion-label>OBESE</ion-label>
-        </div>
-        <div class="EXTREMELY_OBESE fats">
-          <ion-img src="assets/imgs/fats/Path 4000.png"></ion-img>
-          <ion-label>EXTREMELY OBESE</ion-label>
-        </div>
       </ion-col>
     </ion-row>
   </ion-grid>

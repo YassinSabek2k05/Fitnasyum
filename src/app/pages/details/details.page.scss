@@ -134,36 +134,47 @@ ion-progress-bar{
   margin: 0 auto;
 
 }
-.fatCont{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 5vh;
-  width: 100%;
+.vr{
+  border-left: 3px solid var(--ion-color-bordercolor);
+  height: 80%;
+  width: 3px;
+  margin:5% auto;
+  margin-top: 30%;
 }
-.fats ion-label{
-  width: auto;
+.textCol{
+  margin: 0 ;
+  white-space: nowrap;
+}
+.textRow ion-col{
+  font-size:0.5rem;
   text-align: center;
-  padding: 0.5em 1em ;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.fats ion-img{
-  width: 4vw;
-  height: 50%;
-  margin: 0 auto;
+.textRow ion-col:nth-child(1){
+  background-color: #3398FE;
 }
-.UNDERWEIGHT ion-label{
-  background: #3399FF;
+.textRow ion-col:nth-child(2){
+  background-color: #00BF8C;
 }
-.NORMAL ion-label{
-  background: #00FF00;
+.textRow ion-col:nth-child(3){
+  background-color: #EDB101;
 }
-.OVERWEIGHT ion-label{
-  background: #FFA500;
+.textRow ion-col:nth-child(4){
+  background-color: #FF6700;
 }
-.OBESE ion-label{
-  background: #FF0000;
+.textRow ion-col:nth-child(5){
+  background-color: #E5281F;
+  font-size: 0.2em;
 }
-.EXTREMELY_OBESE ion-label{
-  background: #FF0000;
+.clickedFat{
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--ion-color-primary)!important;
 }
+// .clickedFat{
+//   background: var(--ion-color-primary)!important;
+
+// }
