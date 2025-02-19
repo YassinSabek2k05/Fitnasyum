@@ -122,7 +122,9 @@ ion-progress-bar{
   width: 100%;
 }
 .btnCont ion-button{
+  font-size: 1.8em;
   width: 80%;
+  height: 4vh;
   --background: var(--ion-color-primary);
   --color: var(--ion-color-textcolor);
   --border-radius: 20px;
@@ -174,7 +176,211 @@ ion-progress-bar{
   border-style: solid;
   border-color: var(--ion-color-primary)!important;
 }
-// .clickedFat{
-//   background: var(--ion-color-primary)!important;
+.level{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  --border-radius:20px;
+--color:var(--ion-color-bordercolor);
+--color-checked:var(--ion-color-primary);
+--inner-border-radius:20px;
+}
+.level ion-label{
+  border: 1px solid clear;
+  width: 90%;
+  font-size: 1.5em;
+  font-weight: 800;
+  border-radius:40px;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+.clickedLevel{
+  border: 2px solid var(--ion-color-primary)!important;
+  color: var(--ion-color-primary)!important;
+}
+.visible{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+.diseaseType{
+  margin-top: 10vh;
+}
+.diseaseType ion-label{
+  font-size: 1em;
+  font-weight: 800;
+  text-align: center;
+  padding: 5px;
+  border-radius: 40px;
 
-// }
+}
+.diseaseType ion-col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  margin: 5px 0;
+}
+.clickedDisease{
+  border: 3px solid var(--ion-color-primary)!important;
+  color: var(--ion-color-primary)!important;
+  border-radius: 25px;
+}
+.unclickedDisease{
+  border: 1px solid var(--ion-color-bordercolor)!important;
+  color: var(--ion-color-textcolor)!important;
+  border-radius: 25px;
+  font-weight: 400;
+}
+
+ion-range {
+  --bar-background: transparent; /* Background of the scale */
+  --bar-background-active: transparent; /* Active part */
+  --knob-background: ; /* Hide default knob */
+}
+
+/* Ensure all ticks stay visible and maintain the same height */
+ion-range::part(knob) {
+  background-image: url('/assets/imgs/bg.png');
+  width: 1px;
+  background: var(--ion-color-primary);
+  display: flex !important; /* Force ticks to render */
+  align-items: center;
+  margin-left:10px;
+  z-index: 40;
+  height: 40px !important; /* Fix overall tick height */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--ion-color-primary);
+  color: #fff;
+
+  border-radius: 0%;
+  transform: scale(1.01);
+
+  min-width: 3px;
+  height: 28px;
+}
+ion-range::part(knob)::after {
+  content: "";
+  position: absolute;
+  bottom: -20px; // adjust based on how far you want the triangle to be from the element
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--ion-color-primary); // triangle color
+}
+ion-range::part(pin){
+  color: var(--ion-color-primary);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+ion-range::part(pin)::after{
+  content: "KG";
+}
+.scale-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5vh;
+}
+.range-container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 5vh;
+}
+
+/* Position the ticks overlay */
+.ticks-overlay {
+  position: absolute;
+  top: 50%; /* Center the ticks on the range */
+  left: 0;
+  width: 100%;
+  height: 10px;
+  pointer-events: none; /* Prevent interaction issues */
+}
+
+/* Style individual tick marks */
+.tick {
+  position: absolute;
+  min-width: 1px;
+  max-width: 1px;
+  height: 20px; /* Adjust tick height */
+  background: #fff;
+  transform: translateX(-100%);
+  margin:0;
+}
+.middle-tick {
+  bottom:-50%;
+  position: absolute;
+  width: 0.5px;
+  max-width: 0.5px;
+  height: 10px; /* Adjust tick height */
+  background: #fff;
+  transform: translateX(-100%);
+  margin:0;
+}
+.tick-labels {
+  position: absolute;
+  top: 100%; /* Center the ticks on the range */
+  left: 0;
+  width: 100%;
+  height: 10px;
+  pointer-events: none; /* Prevent interaction issues */
+}
+
+/* Style individual tick marks */
+.tick-label {
+  position: absolute;
+  height: 20px; /* Adjust tick height */
+  transform: translateX(-120%);
+}
+
+.picker{
+    transform: rotate(90deg); /* Rotate 90 degrees */
+  
+}
+.textUnderImg{
+  text-align: center;
+  margin-top: 5vh;
+}
+.textUnderImg h1{
+  font-size: 1.5em;
+  text-align: center;
+}
+.hidden{
+  display: none;
+}
+.visible{
+  display: block;
+}
+.btnRole{
+  display: flex;
+  align-items: center;
+  margin-top: 5vh;
+  width: 100%;
+}
+.UserBtn, .CoachBtn{
+  font-size: 1.4em;
+  width: 100%;
+  --color: var(--ion-color-textcolor);
+  --border-width: 0px;
+  --box-shadow: none;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  margin: 10px auto;
+}
+.CoachBtn{
+  --background: transparent;
+  --border-color: var(--ion-color-textcolor);
+  --border-width: 2px;
+  --border-style: solid;
+}

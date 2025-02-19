@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
       <ion-col class="prev" size="1">
@@ -126,9 +126,91 @@
           <ion-row>
             <ion-col size="1"></ion-col>
             <ion-col size="10">
-              <ion-picker>
-                <ion-range aria-label="Custom range" [value]="50" [pin]="true"></ion-range>
-              </ion-picker>
+            <div class="range-container">
+                <!-- Tick marks overlay -->
+                <div class="ticks-overlay">
+                <span class="middle-tick" style="left: 0%"></span>
+                <span class="middle-tick" style="left: 1.4286%;"></span>
+                <span class="middle-tick" style="left: 2.8571%;"></span>
+                <span class="middle-tick" style="left: 4.2857%;"></span>
+                <span class="middle-tick" style="left: 5.7143%;"></span>
+                <span class="tick" style="left: 7.1429%"></span>
+                <span class="middle-tick" style="left: 8.5714%;"></span>
+                <span class="middle-tick" style="left: 10%;"></span>
+                <span class="middle-tick" style="left: 11.4286%;"></span>
+                <span class="middle-tick" style="left: 12.8571%;"></span>
+                <span class="tick" style="left: 14.2857%"></span>
+                <span class="middle-tick" style="left: 15.7143%;"></span>
+                <span class="middle-tick" style="left: 17.1429%;"></span>
+                <span class="middle-tick" style="left: 18.5714%;"></span>
+                <span class="middle-tick" style="left: 20%;"></span>
+                <span class="tick" style="left: 21.4286%"></span>
+                <span class="middle-tick" style="left: 22.8571%;"></span>
+                <span class="middle-tick" style="left: 24.2857%;"></span>
+                <span class="middle-tick" style="left: 25.7143%;"></span>
+                <span class="middle-tick" style="left: 27.1429%;"></span>
+                <span class="tick" style="left: 28.5714%"></span>
+                <span class="middle-tick" style="left: 30%;"></span>
+                <span class="middle-tick" style="left: 31.4286%;"></span>
+                <span class="middle-tick" style="left: 32.8571%;"></span>
+                <span class="middle-tick" style="left: 34.2857%;"></span>
+                <span class="tick" style="left: 35.7143%"></span>
+                <span class="middle-tick" style="left: 37.1429%;"></span>
+                <span class="middle-tick" style="left: 38.5714%;"></span>
+                <span class="middle-tick" style="left: 40%;"></span>
+                <span class="middle-tick" style="left: 41.4286%;"></span>
+                <span class="tick" style="left: 42.8571%"></span>
+                <span class="middle-tick" style="left: 44.2857%;"></span>
+                <span class="middle-tick" style="left: 45.7143%;"></span>
+                <span class="middle-tick" style="left: 47.1429%;"></span>
+                <span class="middle-tick" style="left: 48.5714%;"></span>
+                <span class="tick" style="left: 50%"></span>
+                <span class="middle-tick" style="left: 51.4286%;"></span>
+                <span class="middle-tick" style="left: 52.8571%;"></span>
+                <span class="middle-tick" style="left: 54.2857%;"></span>
+                <span class="middle-tick" style="left: 55.7143%;"></span>
+                <span class="tick" style="left: 57.1429%"></span>
+                <span class="middle-tick" style="left: 58.5714%;"></span>
+                <span class="middle-tick" style="left: 60%;"></span>
+                <span class="middle-tick" style="left: 61.4286%;"></span>
+                <span class="middle-tick" style="left: 62.8571%;"></span>
+                <span class="tick" style="left: 64.2857%"></span>
+                <span class="middle-tick" style="left: 65.7143%;"></span>
+                <span class="middle-tick" style="left: 67.1429%;"></span>
+                <span class="middle-tick" style="left: 68.5714%;"></span>
+                <span class="middle-tick" style="left: 70%;"></span>
+                <span class="tick" style="left: 71.4286%"></span>
+                <span class="middle-tick" style="left: 72.8571%;"></span>
+                <span class="middle-tick" style="left: 74.2857%;"></span>
+                <span class="middle-tick" style="left: 75.7143%;"></span>
+                <span class="middle-tick" style="left: 77.1429%;"></span>
+                <span class="tick" style="left: 78.5714%"></span>
+                <span class="middle-tick" style="left: 80%;"></span>
+                <span class="middle-tick" style="left: 81.4286%;"></span>
+                <span class="middle-tick" style="left: 82.8571%;"></span>
+                <span class="middle-tick" style="left: 84.2857%;"></span>
+                <span class="tick" style="left: 85.7143%"></span>
+                <span class="middle-tick" style="left: 87.1429%;"></span>
+                <span class="middle-tick" style="left: 88.5714%;"></span>
+                <span class="middle-tick" style="left: 90%;"></span>
+                <span class="middle-tick" style="left: 91.4286%;"></span>
+                <span class="tick" style="left: 92.8571%"></span>
+                <span class="middle-tick" style="left: 94.2857%;"></span>
+                <span class="middle-tick" style="left: 95.7143%;"></span>
+                <span class="middle-tick" style="left: 97.1429%;"></span>
+                <span class="middle-tick" style="left: 98.5714%;"></span>
+                <span class="tick" style="left: 100%"></span>
+                </div>
+              <!-- The actual range slider -->
+              <ion-range value="100" pin="true"  [ticks]="false" [snaps]="true" [step]="2"[min]="30" [max]="140"></ion-range>
+            </div>
+            <div class="tick-labels">
+              <span class="tick-label
+              " style="left: 21.4286%">60</span>
+              <span class="tick-label
+              " style="left: 71.4286%">100</span>
+              <span class="tick-label"></span>
+            </div>
             </ion-col>
             <ion-col size="1"></ion-col>
           </ion-row>
@@ -232,18 +314,212 @@
       </ion-row>
     </ion-grid>
 </swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="1"></ion-col>
+              <ion-col class="topText" size="10">
+                <h1>What is your current
+                  fitness level?</h1>
+                <p>Help us to create your personalized plan.</p>
+              </ion-col>
+              <ion-col size="1"></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="0.5"></ion-col>
+              <ion-col size="11">
+                <ion-list class="level">
+                  <ion-label [ngClass]="levelFocus('Beginner')" (click)="levelChange('Beginner')">Beginner</ion-label>
+                  <ion-label [ngClass]="levelFocus('Intermediate')" (click)="levelChange('Intermediate')">Intermediate</ion-label>
+                  <ion-label [ngClass]="levelFocus('Advance')" (click)="levelChange('Advance')">Advance</ion-label>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="1"></ion-col>
+              <ion-col class="topText" size="10">
+                <h1>Do you suffer from any
+                  diseases?</h1>
+                <p>Help us to create your personalized plan.</p>
+              </ion-col>
+              <ion-col size="1"></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                <ion-list class="level">
+                  <ion-label [ngClass]="diseasesFocus('yes')" (click)="diseasesChange('yes')">Yes</ion-label>
+                  <ion-label [ngClass]="diseasesFocus('no')" (click)="diseasesChange('no')">No</ion-label>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+            <ion-grid [ngClass]="diseasesNo()" class="diseaseType">
+              <ion-row>
+              <ion-col size="11/3" [ngClass]="diseaseTypeFocus('Heart')" >
+                <ion-label (click)="diseaseTypeChange('Heart')">Heart</ion-label>
+              </ion-col>
+              <ion-col size="0.5"></ion-col>
+              <ion-col size="11/3"  [ngClass]="diseaseTypeFocus('Cholesterol')">
+                <ion-label (click)="diseaseTypeChange('Cholesterol')">Cholesterol</ion-label>
+              </ion-col>
+              <ion-col size="0.5"></ion-col>
+              <ion-col  size="11/3" [ngClass]="diseaseTypeFocus('Diabetes1')">
+                <ion-label (click)="diseaseTypeChange('Diabetes1')">Diabetes 1</ion-label>
+              </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="11/3" [ngClass]="diseaseTypeFocus('Diabetes2')">
+                  <ion-label (click)="diseaseTypeChange('Diabetes2')">Diabetes 2</ion-label>
+                </ion-col>
+                <ion-col size="0.5"></ion-col>
+                <ion-col size="11/3" [ngClass]="diseaseTypeFocus('Anemia')">
+                  <ion-label (click)="diseaseTypeChange('Anemia')">Anemia</ion-label>
+                </ion-col>
+                <ion-col size="0.5"></ion-col>
+                <ion-col size="11/3" [ngClass]="diseaseTypeFocus('other')">
+                  <ion-label (click)="diseaseTypeChange('other')">Other</ion-label>
+                </ion-col>
+                </ion-row>
+            </ion-grid>            
+          </ion-grid>
+      </swiper-slide>
+      <swiper-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col class="topText" size="10">
+              <h1>Do you Smoke?</h1>
+              <p>Help us to create your personalized plan.</p>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1"></ion-col>
+            <ion-col size="12">
+              <ion-list class="level">
+                <ion-label [ngClass]="smokeFocus('yes')" (click)="smokeChange('yes')">Yes</ion-label>
+                <ion-label [ngClass]="smokeFocus('no')" (click)="smokeChange('no')">No</ion-label>
+              </ion-list>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+        </ion-grid>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="1"></ion-col>
+          <ion-col class="topText" size="10">
+            <h1>What is your goal?</h1>
+            <p>Help us to create your personalized plan.</p>
+          </ion-col>
+          <ion-col size="1"></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="1"></ion-col>
+          <ion-col size="10">
+            <ion-list class="level">
+              <ion-label [ngClass]="goalFocus('Lose Weight')" (click)="goalChange('Lose Weight')">LoseWeight</ion-label>
+              <ion-label [ngClass]="goalFocus('Get Fitter')" (click)="goalChange('Get Fitter')">Get Fitter</ion-label>
+              <ion-label [ngClass]="goalFocus('>Gain Muscles')" (click)="goalChange('>Gain Muscles')">Gain Muscles</ion-label>
+              <ion-label [ngClass]="goalFocus('Increase Flexibility')" (click)="goalChange('Increase Flexibility')">Increase Flexibility</ion-label>
+              <ion-label [ngClass]="goalFocus('Recovery')" (click)="goalChange('Recovery')">Recovery</ion-label>
+            </ion-list>
+          </ion-col>
+          <ion-col size="1"></ion-col>
+        </ion-row>
+      </ion-grid>
+  </swiper-slide>
+  <swiper-slide>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10">
+          <ion-img
+  src="/assets/imgs/Group 16349.png"
+></ion-img>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col class="textUnderImg" size="10">
+          <h1>Account type</h1>
+          <p>You want to create an account as
+            a coach or a user</p>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+    </ion-grid>
+</swiper-slide>
+  <swiper-slide>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10">
+          <ion-img
+  src="/assets/imgs/Group 9908.png"
+></ion-img>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col class="textUnderImg" size="10">
+          <h1>Your ready to go!</h1>
+          <p>Thanks for taking your time to create account with us.
+            Let’s start your fitness journey</p>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+    </ion-grid>
+</swiper-slide>
       </swiper-container>
     </ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="12">
-        <ion-item class="btnCont">
-          <ion-button  shape="round" (click)="goNext()">Next</ion-button>
-        </ion-item>
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+          <ion-button [ngClass]="btnView('next')" class="UserBtn" shape="round" (click)="goNext()">Next</ion-button>
+        <ion-row>
+            <ion-button [ngClass]="btnView('role')" class="UserBtn" shape="round" expand="block" (click)="goNext()">User</ion-button>
+            <ion-button [ngClass]="btnView('ready')" class="UserBtn" shape="round" expand="block" (click)="goNext()">Get Started!</ion-button>
+        </ion-row>
+        <ion-row>
+          <ion-button [ngClass]="btnView('role')" class="CoachBtn" shape="round" expand="block" (click)="goNext()">Coach</ion-button>
+      </ion-row>
       </ion-col>
+      <ion-col size="1"></ion-col>
     </ion-row>
   </ion-grid>
+<!-- <ion-list class="level">
+  <ion-label [ngClass]="goalFocus('Lose Weight')" (click)="goalChange('Lose Weight')">LoseWeight</ion-label>
+  <ion-label [ngClass]="goalFocus('Get Fitter')" (click)="goalChange('Get Fitter')">Get Fitter</ion-label>
+  <ion-label [ngClass]="goalFocus('>Gain Muscles')" (click)="goalChange('>Gain Muscles')">Gain Muscles</ion-label>
+  <ion-label [ngClass]="goalFocus('Increase Flexibility')" (click)="goalChange('Increase Flexibility')">Increase Flexibility</ion-label>
+  <ion-label [ngClass]="goalFocus('Recovery')" (click)="goalChange('Recovery')">Recovery</ion-label>
+</ion-list> -->
+
 </ion-content>
 
+<!-- <div class="picker">
+<ion-picker>
+  <ion-picker-column value="javascript">
+    <ion-picker-column-option value="" disabled="true">-</ion-picker-column-option>
+    <ion-picker-column-option value="javascript">-</ion-picker-column-option>
+    <ion-picker-column-option value="typescript">-</ion-picker-column-option>
+    <ion-picker-column-option value="rust">-</ion-picker-column-option>
+    <ion-picker-column-option value="c#">-</ion-picker-column-option>
+  </ion-picker-column>
+</ion-picker>
+</div> -->

@@ -59,7 +59,7 @@ export class DetailsPage implements OnInit {
   goPrev() {
     if (this.swiperInstance) {
       this.swiperInstance.slidePrev();
-      this.progressCurrent();
+      this.progress -= 1/this.getNumberOfSlides();
     }
   }
   logActiveIndex() {
@@ -82,7 +82,7 @@ export class DetailsPage implements OnInit {
     console.log(this.selectedGender);
   }
   progressCurrent(){
-    this.progress = this.getActiveIndex()/(this.getNumberOfSlides()) ;
+    this.progress = this.getActiveIndex()/(this.getNumberOfSlides()-1) ;
   } 
   heights: number[] = [140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200];
   currentYear: number = (new Date()).getFullYear();
@@ -151,6 +151,84 @@ export class DetailsPage implements OnInit {
   selectFat(i:number){
     this.fatLevel = i;
     console.log(i);
+  }
+  level: String = 'Intermediate';
+  levelFocus(level: String){
+    if(level == this.level)
+      return "clickedLevel";
+    return "";
+  }
+  levelChange(str: String): void {
+    this.level = str;
+    console.log(str);
+  }
+  diseases: String = 'no';
+  diseasesTypes: { [key: string]: boolean } = {
+    heart: false,
+    cholestrol: false,
+    diabetes1: true,
+    diabetes2: false,
+    anemia: false,
+    other: false,
+};
+  diseasesFocus(diseases: String){
+    if(diseases == this.diseases)
+      return "clickedLevel";
+    return "";
+  }
+  diseasesChange(str: String): void {
+    this.diseases = str;
+    console.log(str);
+  }
+  diseasesNo(){
+    if(this.diseases=='yes'){
+      return "visible";
+    }
+    return "hidden";
+  }
+  diseaseTypeFocus(diseases: string){
+    if(this.diseasesTypes[diseases])
+      return "clickedDisease";
+    return "unclickedDisease";
+  }
+  diseaseTypeChange(str: string): void {
+    this.diseasesTypes[str] = !this.diseasesTypes[str];
+    console.log(str);
+  }
+  //smoke
+  smoke: String = 'no';
+  smokeFocus(smoke: String){
+    if(smoke == this.smoke)
+      return "clickedLevel";
+    return "";
+  }
+  smokeChange(str: String): void {
+    this.smoke = str;
+    console.log(str);
+  }
+  //goal
+  goal: String = 'Get Fitter';
+  goalFocus(goal: String){
+    if(goal == this.goal)
+      return "clickedLevel";
+    return "";
+  }
+  goalChange(str: String): void {
+    this.goal = str;
+    console.log(str);
+  }
+  weights: number[] = Array.from({length: 13}, (_, i) => 40 + i * 10);
+  btnView(str: String){
+    if(str == 'role'&&(this.getActiveIndex() == 10)){
+      console.log(this.getActiveIndex());
+      return "visible";
+    }
+    else if(str == 'next'&&!(this.getActiveIndex() == 11 || this.getActiveIndex() == 10)){
+      return "visible";
+    }
+    else if(str=='ready'&& this.getActiveIndex() == 11)
+      return "visible";
+    return "hidden";
   }
   constructor() {
    }
