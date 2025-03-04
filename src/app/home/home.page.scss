@@ -1,6 +1,94 @@
-ion-content {
+/* ion-content {
     --padding-start: 20px;
 }
 .green-txt {
     color: var(--ion-color-primary);
+} */
+.custom-header {
+    --background: #141414; /* Dark theme */
+    --color: white; /* Text color */
+    padding: 16px; /* Spacing */
+    border: none;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 16px; /* Adjust padding */
+}
+
+.green-txt {
+    //color: #0f0; /* Green color */
+    color: var(--ion-color-primary);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
+
+.profile-img {
+    width: 40px; /* Adjust size */
+    height: 40px;
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+}
+.view-all:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+.view-all {
+    color: var(--ion-color-primary); /* Replace with the exact green shade from the UI */
+    font-weight: bold;
+    font-size: 14px;
+    position: absolute;
+    right: 20px; /* Adjust as needed */
+    top: 44px;
+}
+
+.workout-section {
+    padding: 16px;
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .workout-slider {
+        .swiper-slide {
+            width: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .workout-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            //background: #222;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            h3 {
+                margin-top: 8px;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+.custom-banner {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
 }

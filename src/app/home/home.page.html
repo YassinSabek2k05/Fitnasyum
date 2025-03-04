@@ -1,16 +1,59 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Tab 1
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
+<!-- <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <!--     <ion-title size="large"> <span color="green">Hey,</span> Ahmed</ion-title> -->
-      <h1><span class="green-txt">Hey,</span> Ahmed</h1>
+      <h1 slot="start"><span class="green-txt">Hey,</span> Ahmed</h1>
+      <ion-img slot="end" src="assets/female.png"></ion-img>
     </ion-toolbar>
   </ion-header>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar class="custom-header">
+    <div class="header-content">
+      <h1><span class="green-txt">Hey,</span> Ahmed</h1>
+      <ion-img class="profile-img" src="assets/female.png"></ion-img>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <section class="workout-section">
+    <div class="section-header">
+      <h2>Workout</h2>
+      <a class="view-all" href="/workout">View All</a>
+    </div>
+    <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
+      <swiper-slide *ngFor="let workout of workouts">
+        <div class="workout-card">
+          <img [src]="workout.image" sty [alt]="workout.title" />
+          <h3>{{ workout.title }}</h3>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </section>
+  <section class="custom-banner">
+    <ion-img src="assets/test.png">
+
+    </ion-img>
+  </section>
+  <section class="workout-section">
+    <div class="section-header">
+      <h2>Challenge</h2>
+      <a class="view-all" href="/workout">View All</a>
+    </div>
+    <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
+      <swiper-slide *ngFor="let workout of workouts">
+        <div class="workout-card">
+          <img [src]="workout.image" sty [alt]="workout.title" />
+          <h3>{{ workout.title }}</h3>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </section>
 </ion-content>

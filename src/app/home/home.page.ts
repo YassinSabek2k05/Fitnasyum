@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { register } from 'swiper/element/bundle';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +7,18 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  @ViewChild('swiper')
+  swiperRef: ElementRef | undefined;
+  swiperInstance: any;
+  workouts = [
+    { title: 'Yoga', image: 'assets/yoga.png' },
+    { title: 'Upper Body', image: 'assets/upper-body.png' },
+    { title: 'Build Muscle', image: 'assets/muscle.png' },
+  ];
+  challenges = [
+    { title: '30 days Crunch', image: 'assets/30-challeng.png' },
+    { title: '31 days Plank', image: 'assets/31days.png' },
+    { title: '20 days squats', image: 'assets/20days.png' }];
 
   constructor() { }
 
