@@ -321,10 +321,10 @@ ion-range::part(knob)::after {
   border-bottom: 10px solid var(--ion-color-primary); // triangle color
 }
 ion-range::part(pin) {
-  display: block !important; /* Force visibility */
-  opacity: 1 !important; /* Ensure it's fully visible */
-  transform: translateY(-10px); /* Adjust positioning */
-  color: var(--ion-color-primary); /* Text color */
+  display: block !important; 
+  opacity: 1 !important;
+  transform: translateY(-10px);
+  color: var(--ion-color-primary);
   font-size: 1.2em;
   font-weight: bold;
   padding: 0px 10px;
@@ -345,22 +345,21 @@ ion-range::part(pin)::after {
   margin-top: 5vh;
 }
 
-/* Position the ticks overlay */
 .ticks-overlay {
   position: absolute;
-  top: 50%; /* Center the ticks on the range */
+  top: 50%; 
   left: 0;
   width: 100%;
   height: 10px;
-  pointer-events: none; /* Prevent interaction issues */
+  pointer-events: none;
 }
 
-/* Style individual tick marks */
+
 .tick {
   position: absolute;
   min-width: 1px;
   max-width: 1px;
-  height: 20px; /* Adjust tick height */
+  height: 20px; 
   background: #fff;
   transform: translateX(-100%);
   margin: 0;
@@ -370,24 +369,24 @@ ion-range::part(pin)::after {
   position: absolute;
   width: 0.5px;
   max-width: 0.5px;
-  height: 10px; /* Adjust tick height */
+  height: 10px; 
   background: #fff;
   transform: translateX(-100%);
   margin: 0;
 }
 .tick-labels {
   position: absolute;
-  top: 100%; /* Center the ticks on the range */
+  top: 100%; 
   left: 0;
   width: 100%;
   height: 10px;
-  pointer-events: none; /* Prevent interaction issues */
+  pointer-events: none;
 }
 
-/* Style individual tick marks */
+
 .tick-label {
   position: absolute;
-  height: 20px; /* Adjust tick height */
+  height: 20px;
   transform: translateX(-120%);
 }
 /* ion-picker {

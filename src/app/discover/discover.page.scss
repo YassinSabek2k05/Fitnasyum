@@ -1,0 +1,48 @@
+ion-header{
+    padding-left: 2vw;
+}
+ion-searchbar{
+    --background: var(--ion-color-searchbarBackground);
+    --border-radius: 20px;
+    --placeholder-color: #000;
+    --color: var(--ion-color-textcolor);
+    --searchbar-icon-color: #000;
+    --searchbar-icon-color-focused: #000;
+    --searchbar-icon-color-activated: #000;
+    --searchbar-icon-color-hover: #000;
+    --searchbar-icon-color-focused-hover: #000;
+    --searchbar-icon-color-activated-hover: #000;
+    --searchbar-icon-color-focused-activated: #000;
+    --searchbar-icon-color-focused-activated-hover: #000;
+    --searchbar-icon-color-disabled: #000;
+}
+ion-searchbar::part(cancel-button) {
+    color: #000;
+    font-weight: bold;
+}
+#autocomplete{
+    height: fit-content;
+}
+#recent-searches{
+    padding: 1vh 1vh;
+
+}
+#recent-searches-title{
+    font-size: 1.5rem;
+    color: var(--ion-color-textcolor);
+    margin: 2vh 0;
+}
+#recent-searches ion-card{
+    font-size:50pt;
+    color: var(--ion-color-textcolor);
+    border-radius: 25px;
+    margin: 5px;
+}
+#recent-searches{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2vh;
+}
+#recent-searches ion-card-content{
+    font-size: 1.3rem;
+}
