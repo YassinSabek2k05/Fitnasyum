@@ -1,0 +1,169 @@
+  ion-content {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 20%;
+  }
+  .verification{
+    overflow: hidden; 
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    --background: linear-gradient(
+      to bottom, 
+      rgba(0, 0, 0, 0.8) 20%, 
+      rgba(0, 0, 0, 1) 80%
+    ), url('/assets/imgs/barbell.png') no-repeat right top ;
+    --background-size: cover;
+  }
+.boxes{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 10vh;
+}
+.box{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px;
+    border: 1px solid var(--ion-color-bordercolor);
+    margin-bottom: 20px;
+}
+.focus{
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0px;
+  border: 1px solid var(--ion-color-primary);
+  margin-bottom: 20px;
+}
+  .end {
+    width: 100%;
+    display: flex;
+    bottom:0;
+  }
+  .end ion-button{
+    --color: var(--ion-color-textcolor);
+    font-size:25px;
+  }
+  .numpadcom{
+    margin-bottom: 15%;
+    width: 70%;
+    --background: var(--ion-color-background);
+    margin-right:auto;
+    margin-left:auto;
+    padding: auto;
+    align-items: center;
+  }
+  .numpadcom ion-button{
+    margin: 0 auto;
+  }
+  .numpad{
+    margin-bottom: 15%;
+    width: 70%;
+    --background: var(--ion-color-background);
+    --border-color: var(--ion-color-bordercolor);
+    outline: none;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-radius: 5px;
+  }
+  .numpad ion-button{
+    --background: none;
+    --border:none;
+  }
+  .resend{
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin: 20px auto;
+  }
+  ion-item{
+    --background: none;
+    --border:none;
+  }
+  .visible{
+    visibility: visible;
+  }
+  .hidden{
+    visibility: hidden;
+  }
+  //sign up page
+  .background{
+    margin: 0;
+    background:linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.5)20%, 
+        rgba(0, 0, 0, 1)80%
+    ),  url('/assets/imgs/bg.png') no-repeat  ;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  ion-grid{
+  margin-top: 10vh;
+  margin-bottom: 0%;
+  }
+  h1{
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+  p{
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    text-align: left;
+    width: 100%;
+  }
+  a{
+    text-decoration: none;
+    color: var(--ion-color-primary);
+    margin-top: 5px;
+  }
+  .postText{
+    text-align: center;
+  }
+  ion-button{
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-textcolor);
+    font-weight: bold;
+    width: 100%;
+    margin: 20% auto 5% auto;
+    left: 0;
+    right: 0;
+    align-items: center;
+  }
+  ion-input {
+    font-size: larger;
+    border:0;
+    border-bottom: 1.6px solid #fff;
+    color: #fff;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+  ion-button:active{
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-textcolor);
+    --border-width:0px;
+  }

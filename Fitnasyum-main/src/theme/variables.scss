@@ -1,0 +1,39 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+// Primary Colors
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+  --border-color: var(--ion-color-background);
+  --picker-highlight-background: #000; /* Background color */
+  --picker-highlight-color: var(--ion-color-primary); /* Text color */
+  --input-wrapper:var(--ion-color-background);
+
+  }
+  ion-input{
+    --border-color: var(--ion-color-bordercolor);
+    --color: var(--ion-color-textcolor);
+  }
+  
+  :root {
+    --picker-highlight-background: rgba(0, 123, 255, 0.1); /* Background color */
+    --picker-highlight-color: #007bff; /* Text color */
+      --ion-color-primary: #00E98B;
+      --ion-color-secondary: #E0FF00;
+      --ion-color-tertiary: #007FE6;
+      --ion-color-bordercolor: #fff;
+      --ion-color-textcolor: #ffffff;
+      --ion-color-textcolor2: #000000;
+      --ion-color-hyperlinks: #00E98B;
+      --ion-color-background: #000;
+      // --ion-color-success: #{$success-color};
+      // --ion-color-warning: #{$warning-color};
+      // --ion-color-danger: #{$danger-color};
+      // --ion-color-dark: #{$dark-color};
+      // --ion-color-medium: #{$medium-color};
+      // --ion-color-light: #{$light-color};
+    }
+  // Border Colors

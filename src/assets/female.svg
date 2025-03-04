@@ -1,0 +1,175 @@
+<svg width="158.000000" height="158.000000" viewBox="0 0 158 158" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<linearGradient x1="-6.596695" y1="207.583923" x2="-6.248383" y2="207.583923" id="paint_linear_1_491_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#081129"/>
+			<stop offset="1.000000" stop-color="#081129"/>
+		</linearGradient>
+		<linearGradient x1="5.307091" y1="218.591187" x2="5.655397" y2="218.591187" id="paint_linear_1_494_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#081129"/>
+			<stop offset="1.000000" stop-color="#081129"/>
+		</linearGradient>
+		<linearGradient x1="10.886570" y1="231.040131" x2="11.234882" y2="231.040131" id="paint_linear_1_497_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#081129"/>
+			<stop offset="1.000000" stop-color="#081129"/>
+		</linearGradient>
+		<linearGradient x1="-5.050545" y1="164.911057" x2="-4.702248" y2="164.911057" id="paint_linear_1_500_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FEBBBA"/>
+			<stop offset="1.000000" stop-color="#FEBBBA"/>
+		</linearGradient>
+		<linearGradient x1="-2.817741" y1="215.366364" x2="-2.469440" y2="215.366364" id="paint_linear_1_503_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FEBBBA"/>
+			<stop offset="1.000000" stop-color="#FEBBBA"/>
+		</linearGradient>
+		<linearGradient x1="-2.298374" y1="161.997101" x2="-1.950073" y2="161.997101" id="paint_linear_1_506_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FEBBBA"/>
+			<stop offset="1.000000" stop-color="#FEBBBA"/>
+		</linearGradient>
+		<linearGradient x1="-7.087292" y1="172.679733" x2="-6.738995" y2="172.679733" id="paint_linear_1_509_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#081129"/>
+			<stop offset="1.000000" stop-color="#081129"/>
+		</linearGradient>
+		<linearGradient x1="-4.449425" y1="165.343552" x2="-4.101112" y2="165.343552" id="paint_linear_1_512_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#081129"/>
+			<stop offset="1.000000" stop-color="#081129"/>
+		</linearGradient>
+		<linearGradient x1="-0.264606" y1="157.999985" x2="0.083702" y2="157.999985" id="paint_linear_1_515_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFCF8E"/>
+			<stop offset="1.000000" stop-color="#FE7062"/>
+		</linearGradient>
+		<linearGradient x1="-0.407654" y1="157.990173" x2="-0.059326" y2="157.990173" id="paint_linear_1_518_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FF928E"/>
+			<stop offset="1.000000" stop-color="#FE7062"/>
+		</linearGradient>
+		<linearGradient x1="-0.116556" y1="158.005157" x2="0.231754" y2="158.005157" id="paint_linear_1_521_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FF928E"/>
+			<stop offset="1.000000" stop-color="#FE7062"/>
+		</linearGradient>
+		<linearGradient x1="-21.954430" y1="190.438568" x2="-21.606110" y2="190.438568" id="paint_linear_1_524_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#081129"/>
+			<stop offset="1.000000" stop-color="#081129"/>
+		</linearGradient>
+	</defs>
+	<mask id="mask1_490" mask-type="alpha" maskUnits="userSpaceOnUse" x="56.721802" y="24.788574" width="47.019653" height="47.019958">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3723" d="M56.72 48.29C56.72 61.28 67.24 71.8 80.23 71.8C93.21 71.8 103.74 61.28 103.74 48.29C103.74 35.31 93.21 24.78 80.23 24.78C67.24 24.78 56.72 35.31 56.72 48.29Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_490)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 986" x="45.192627" y="68.787598" width="57.402657" height="57.402409" transform="rotate(-75.3168 45.192627 68.787598)" fill="url(#paint_linear_1_491_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_493" mask-type="alpha" maskUnits="userSpaceOnUse" x="41.391113" y="41.586060" width="33.763428" height="77.405518">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3724" d="M41.51 118.99L71.65 115.8L75.15 49.66L57.74 41.58C47.4 77.34 40.37 109.85 41.51 118.99Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_493)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 987" x="21.391663" y="114.018311" width="83.694267" height="53.267639" transform="rotate(-75.3168 21.391663 114.018311)" fill="url(#paint_linear_1_494_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_496" mask-type="alpha" maskUnits="userSpaceOnUse" x="86.790466" y="36.131775" width="34.111389" height="100.531311">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3725" d="M90.92 37.64L86.79 118.49L120.9 136.66C120.18 109.03 106.07 38.03 100.29 36.13L90.92 37.64Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_496)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 988" x="62.140564" y="130.204041" width="105.894516" height="58.479492" transform="rotate(-75.3168 62.140564 130.204041)" fill="url(#paint_linear_1_497_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_499" mask-type="alpha" maskUnits="userSpaceOnUse" x="69.321472" y="81.628113" width="22.701538" height="25.234802">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3726" d="M69.32 83.74L70.66 106.86L92.02 103.64L91.03 81.62L69.32 83.74Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_499)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 989" x="60.682007" y="85.049988" width="30.398808" height="31.821184" transform="rotate(-21.6071 60.682007 85.049988)" fill="url(#paint_linear_1_500_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_502" mask-type="alpha" maskUnits="userSpaceOnUse" x="58.131409" y="39.236694" width="43.960876" height="55.098145">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3727" d="M63.28 50C60.9 53.78 62.26 61.46 62.26 61.46C55.37 61.31 59.02 69.05 59.71 72.13C60.41 75.21 63.51 73.75 63.51 73.75C64.24 75.3 68.34 96.83 82.19 94.09C96.04 91.34 101.16 68.48 101.16 68.48C106.09 50.52 90.27 42.19 80.37 39.67C79.19 39.37 78.09 39.23 77.05 39.23C69.36 39.23 65.38 46.67 63.28 50Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_502)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 990" x="45.340332" y="95.036255" width="65.669304" height="60.117088" transform="rotate(-79.8085 45.340332 95.036255)" fill="url(#paint_linear_1_503_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_505" mask-type="alpha" maskUnits="userSpaceOnUse" x="54.708557" y="96.226929" width="50.528137" height="26.644348">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3728" d="M69.1 97.12C64.61 97.87 59.7 100.38 54.7 102.24L87.49 122.87L105.23 103.4L91.69 96.22L69.1 97.12Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_505)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 991" x="51.074280" y="96.732178" width="53.715961" height="33.348885" transform="rotate(-7.9155 51.074280 96.732178)" fill="url(#paint_linear_1_506_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_508" mask-type="alpha" maskUnits="userSpaceOnUse" x="60.606323" y="35.539307" width="38.763855" height="22.405151">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3729" d="M63.03 41.08C58.4 47.55 62.04 53.29 60.8 57.94C65.28 56.31 80.42 53.87 84.98 54.32C85.92 51.22 84.07 46.07 83.12 42.01C84.6 45.87 87.98 51.77 87.62 54.82C93.74 55.1 92.49 55.18 99.37 57.94L94.01 39.27C88.66 36.77 83.64 35.53 78.94 35.53C73.16 35.53 67.86 37.4 63.03 41.08Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_508)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 992" x="48.721191" y="41.116028" width="46.677486" height="39.853935" transform="rotate(-29.9283 48.721191 41.116028)" fill="url(#paint_linear_1_509_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_511" mask-type="alpha" maskUnits="userSpaceOnUse" x="71.295471" y="11.140259" width="14.539001" height="17.656006">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3730" d="M71.29 19.26C71.29 23.75 76.05 28.79 78.56 28.79C81.6 28.79 85.83 23.75 85.83 19.26C85.83 14.77 82.57 11.14 78.56 11.14C74.55 11.14 71.29 14.77 71.29 19.26Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_511)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 993" x="63.664307" y="15.529785" width="21.406296" height="22.554005" transform="rotate(-29.9084 63.664307 15.529785)" fill="url(#paint_linear_1_512_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_514" mask-type="alpha" maskUnits="userSpaceOnUse" x="38.877014" y="96.105591" width="83.527710" height="55.521484">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3731" d="M69.09 97C58.57 99.67 48.55 104.61 38.87 111L47.19 144.41C56.69 149.03 67.37 151.62 78.65 151.62C92.74 151.62 105.89 147.58 117 140.59L122.4 110.52C112.26 103.62 102.85 100.34 91.68 96.1C88.22 103.3 72.4 102.59 69.09 97Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_514)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 994" x="38.877014" y="96.105591" width="83.527702" height="55.521439" fill="url(#paint_linear_1_515_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_517" mask-type="alpha" maskUnits="userSpaceOnUse" x="111.351685" y="110.524414" width="19.538269" height="33.201965">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3732" d="M111.35 143.72C118.68 139.96 125.28 134.98 130.89 129.06C126.29 115.35 122.26 110.52 122.26 110.52L111.35 143.72Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_517)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 995" x="111.351685" y="110.524414" width="19.538258" height="33.201973" fill="url(#paint_linear_1_518_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_520" mask-type="alpha" maskUnits="userSpaceOnUse" x="30.763245" y="111.018677" width="24.225037" height="35.351685">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3733" d="M30.76 133.28C36.89 138.77 43.97 143.22 51.72 146.37C52.65 143.68 53.73 140.93 54.98 138.14L39.02 111.01C39.02 111.01 34.11 119.55 30.76 133.28Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_520)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 996" x="30.763245" y="111.018677" width="24.225058" height="35.351696" fill="url(#paint_linear_1_521_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+	<mask id="mask1_523" mask-type="alpha" maskUnits="userSpaceOnUse" x="93.237061" y="39.315308" width="17.119507" height="106.244568">
+		<g style="mix-blend-mode:normal">
+			<path id="Path 3734" d="M100.26 145.56C107.82 119.51 117.24 86.48 102.85 42.06L93.23 39.31C101.14 59.31 105.09 115.72 100.26 145.56Z" fill="#C4C4C4" fill-opacity="1.000000" fill-rule="nonzero"/>
+		</g>
+	</mask>
+	<g mask="url(#mask1_523)">
+		<g style="mix-blend-mode:normal">
+			<rect id="Rectangle 997" x="43.228027" y="74.518982" width="80.792023" height="100.699448" transform="rotate(-35.1435 43.228027 74.518982)" fill="url(#paint_linear_1_524_0)" fill-opacity="1.000000"/>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,48 @@
+
+<ion-content [fullscreen]="true">
+  <div class="background"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <h1>Sign In</h1>
+        <p>Train and live the new experience of exercising at home</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <form>
+          <ion-input [(ngModel)]="phone" label="Mobile" type="text" name="username" labelPlacement="stacked" placeholder="Enter Your Phone Number"></ion-input>
+          <ion-input [(ngModel)]="password" label="Password" name="password" placeholder="Enter Your Password" labelPlacement="stacked" type="Password"></ion-input>
+          <div class="forgot-password"><a href="/forgot-password">Forgot Password?</a></div>
+          <ion-button (click)="onLogin()" type="submit" shape="round">Sign In</ion-button>
+        </form>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <div class="signup">
+          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+        </div>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-alert
+  [isOpen]="phoneError"
+  header="Invalid Phone Number"
+  subHeader="Phone number should be 11 digits and contain only numbers."
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
+</ion-alert>
+<ion-alert
+  [isOpen]="passwordError"
+  header="Invalid Password"
+  subHeader="Password should be at least 8 characters long."
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
+</ion-alert>
