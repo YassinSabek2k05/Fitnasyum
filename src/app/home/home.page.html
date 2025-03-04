@@ -56,4 +56,19 @@
       </swiper-slide>
     </swiper-container>
   </section>
+
+  <section class="workout-section">
+    <div class="section-header">
+      <h2>Blog</h2>
+      <a class="view-all" href="/workout">View All</a>
+    </div>
+    <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
+      <swiper-slide *ngFor="let workout of blogs">
+        <div class="workout-card">
+          <img [src]="workout.image" sty [alt]="workout.title" />
+          <h3>{{ workout.title }}</h3>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </section>
 </ion-content>
