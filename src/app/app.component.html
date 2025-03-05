@@ -1,3 +1,6 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+<ion-app *ngIf="isLoading" class="splachscreen">
+  <img width="70%" style="margin: auto;" src="../assets/splashGif.gif" alt="Splash" />
+</ion-app>

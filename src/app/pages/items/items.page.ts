@@ -13,10 +13,10 @@ export class ItemsPage implements OnInit {
   workouts = [
     { name: 'Yoga', image: 'assets/yoga.png', type: 'yoga' },
     { name: 'Upper Body', image: 'assets/upper-body.png', type: 'upper-body' },
-    { name: 'Build Muscles', image: 'assets/build-muscles.png', type: 'build-muscles' },
-    { name: 'ABS', image: 'assets/abs.png', type: 'abs' },
-    { name: 'Cardio', image: 'assets/cardio.png', type: 'cardio' },
-    { name: 'Cross Fit', image: 'assets/crossfit.png', type: 'crossfit' }
+    { name: 'Build Muscles', image: 'assets/30-challeng.png', type: 'build-muscles' },
+    { name: 'ABS', image: 'assets/31days.png', type: 'abs' },
+    { name: 'Cardio', image: 'assets/20days.png', type: 'cardio' },
+    { name: 'Cross Fit', image: 'assets/bruce-mars.png', type: 'crossfit' }
   ];
   constructor(private route: ActivatedRoute, private router: Router) { }
 
