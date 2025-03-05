@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { register } from 'swiper/element/bundle';
+import { FunctionsService } from '../services/functions.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -24,6 +26,9 @@ export class HomePage {
     { title: '5 Tips to get more active', image: 'assets/blog-2.png' },
     { title: '5 simple exercises', image: 'assets/3rd-blog.png' }
   ]
-  constructor() { }
-
+  constructor(public fun: FunctionsService, private router: Router) { }
+  navToItems(type: any) {
+    console.log('hi am here');
+    this.router.navigate(['/tabs/items', type])
+  }
 }

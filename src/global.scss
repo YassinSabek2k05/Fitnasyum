@@ -41,7 +41,9 @@
     --ion-background-color: #141414;
     --ion-text-color: #ffffff;
 }
-
+.toolbar-main-transparent {
+    --background: tranparent;
+}
 html {
     font-family: "Poppins", serif;
     /*  font-weight: 700;

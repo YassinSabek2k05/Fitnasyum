@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar class="toolbar-main-transparent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Workouts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="workout-grid">
+    <div class="workout-card" *ngFor="let workout of workouts" (click)="openWorkout(workout)">
+      <img [src]="workout.image" alt="{{ workout.name }}">
+      <h3>{{ workout.name }}</h3>
+    </div>
+  </div>
+</ion-content>

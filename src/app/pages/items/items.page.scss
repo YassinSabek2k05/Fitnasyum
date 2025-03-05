@@ -1,0 +1,33 @@
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+}
+
+.workout-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+    background: #222;
+    padding: 8px;
+    transition: transform 0.2s;
+}
+
+.workout-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.workout-card h3 {
+    color: white;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.workout-card:hover {
+    transform: scale(1.05);
+}

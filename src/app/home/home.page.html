@@ -26,7 +26,7 @@
   <section class="workout-section">
     <div class="section-header">
       <h2>Workout</h2>
-      <a class="view-all" href="/workout">View All</a>
+      <ion-button fill="clear" class="view-all" (click)="navToItems('workout')">View All</ion-button>
     </div>
     <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
       <swiper-slide *ngFor="let workout of workouts">
@@ -45,7 +45,7 @@
   <section class="workout-section">
     <div class="section-header">
       <h2>Challenge</h2>
-      <a class="view-all" href="/workout">View All</a>
+    <!--   <a class="view-all" href="/workout">View All</a> -->
     </div>
     <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
       <swiper-slide *ngFor="let workout of workouts">
@@ -60,7 +60,7 @@
   <section class="workout-section">
     <div class="section-header">
       <h2>Blog</h2>
-      <a class="view-all" href="/workout">View All</a>
+  <!--     <a class="view-all" href="/workout">View All</a> -->
     </div>
     <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
       <swiper-slide *ngFor="let workout of blogs">

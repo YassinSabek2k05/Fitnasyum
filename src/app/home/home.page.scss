@@ -4,11 +4,15 @@
 .green-txt {
     color: var(--ion-color-primary);
 } */
+ion-content {
+    --background: #141414;
+}
 .custom-header {
     --background: #141414; /* Dark theme */
     --color: white; /* Text color */
     padding: 16px; /* Spacing */
     border: none;
+    --border-color: #141414;
 }
 
 .header-content {
@@ -47,8 +51,8 @@ h1 {
     font-weight: bold;
     font-size: 14px;
     position: absolute;
-    right: 20px; /* Adjust as needed */
-    top: 44px;
+    right: 4px; /* Adjust as needed */
+    top: 26px;
 }
 
 .workout-section {
