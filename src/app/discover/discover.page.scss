@@ -31,7 +31,7 @@ ion-searchbar::part(cancel-button) {
 #recent-searches-title{
     font-size: 1.5rem;
     color: var(--ion-color-textcolor);
-    margin: 2vh 0;
+    margin: 4vh 0;
 }
 #recent-searches ion-card{
     font-size:50pt;
@@ -47,9 +47,10 @@ ion-searchbar::part(cancel-button) {
 #recent-searches ion-card-content{
     font-size: 1.3rem;
 }
-ion-title{
-    margin-top: 5vh;
-    font-size: 1.9rem;
+#recent-searches-title ion-title{
+    margin-left:5px;
+    text-align: left;
+    font-size: 1.2rem;
     color: var(--ion-color-textcolor);
     font-weight: bold;
 }
