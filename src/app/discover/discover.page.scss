@@ -1,8 +1,9 @@
-ion-header{
+ion-header {
     padding-left: 20px;
-    
+    padding-top: 5vh;
 }
-ion-searchbar{
+
+ion-searchbar {
     --background: var(--ion-color-searchbarBackground);
     --border-radius: 20px;
     --placeholder-color: #000;
@@ -17,40 +18,49 @@ ion-searchbar{
     --searchbar-icon-color-focused-activated-hover: #000;
     --searchbar-icon-color-disabled: #000;
 }
+
 ion-searchbar::part(cancel-button) {
     color: #000;
     font-weight: bold;
 }
-#autocomplete{
+
+#autocomplete {
     height: fit-content;
 }
-#recent-searches{
-    padding: 1vh 1vh;
 
+#recent-searches {
+    display: flex;
+    justify-content: space-around;
+    padding: 1vh;
+    margin-top: 2vh;
 }
-#recent-searches-title{
+
+#recent-searches-title {
     font-size: 1.5rem;
     color: var(--ion-color-textcolor);
-    margin: 4vh 0;
+    margin: 2vh 20px;
 }
-#recent-searches ion-card{
-    font-size:50pt;
+
+#recent-searches ion-card {
+    font-size: 50pt;
     color: var(--ion-color-textcolor);
     border-radius: 25px;
     margin: 5px;
 }
-#recent-searches{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 2vh;
-}
-#recent-searches ion-card-content{
+
+#recent-searches ion-card-content {
     font-size: 1.3rem;
 }
-#recent-searches-title ion-title{
-    margin-left:5px;
+
+#recent-searches-title ion-title {
+    margin-left: 5px;
     text-align: left;
     font-size: 1.2rem;
     color: var(--ion-color-textcolor);
     font-weight: bold;
+}
+
+.page-title ion-title {
+    font-size: 1.9rem;
+    text-align: left;
 }
