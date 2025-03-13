@@ -10,19 +10,34 @@
       <div class="triangle"></div>
     </button> 
   </div>
-  <div class="bottom-details">
-    <div class="workout-details">
-
-    </div>
-  </div>
-  <ion-grid>
+  <ion-grid class="bottom-details">
     <ion-row>
-      <ion-col size="12">
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <div class="setDetailsContainer">
+          <span><strong>{{getSetsDetails(0)}}</strong>moves</span>
+          <span><strong>{{getSetsDetails(1)}}</strong>sets</span>
+          <span><strong>{{getSetsDetails(2)}}</strong>min</span>
+        </div>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <ion-label><h1>{{data.title}}</h1></ion-label>
+      <ion-col size="1"></ion-col>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <ion-label><p>{{data.description}}</p></ion-label>
+      <ion-col size="1"></ion-col>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+      </ion-row>
   </ion-grid>
-  <ion-label>{{data.title}}</ion-label>
-  <ion-label>{{data.decription}}</ion-label>
 </ion-content>
 
 <ion-content [fullscreen]="true" [class]="switchToWorkout(2)">
