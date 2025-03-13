@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   standalone: false,
 })
 export class DetailsPage implements OnInit {
+  playState: boolean = false;
   workout: boolean = true;
   id: string | null = null;
   data: any;
@@ -54,6 +55,24 @@ export class DetailsPage implements OnInit {
   }
   switchWorkout(){
     this.workout = !this.workout;
+  }
+  play(){
+    this.playState = true;
+  }
+  pause(){
+    this.playState = false;
+  }
+  playPauseBtnView(btn: string){
+    if(btn == "play" && !this.playState) {
+      return 'show'; 
+    };
+    if(btn == "pause" && this.playState) {
+      return 'show';
+    }
+    return 'hide';
+  }
+  getMovesLeft(){
+    return 11;
   }
 
 }

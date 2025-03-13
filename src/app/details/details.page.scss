@@ -101,11 +101,47 @@ img{
     background: rgba(0,0,0,0.5);
     z-index: 10;
 }
-.progressBar{
 
-    
-bottom: 0%;
-}
 ion-progress-bar{
-    position: absolute;
+    width:100%;
+    margin: 6px 5px;
+}
+.bottom-controls{
+    position: fixed;
+    bottom: 10px;
+    width: 96vw;
+}
+ion-icon{
+    margin:0;
+    align-items: right;
+}
+.countDown{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.control-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.moves-left{
+    margin-bottom: 5%;
+}
+.moves-left strong{
+    font-size:2.5rem;
+    color: var(--ion-color-primary);
+    font-weight: bold;
+}
+.moves-left span{
+    font-size: 1.5rem;
+    color: var(--ion-color-primary);
+}
+.nextExcercise ion-button{
+    --background: white;
+    font-size: 0.6rem;
+}
+.workoutTitle{
+    font-size: 1.6rem;
+    font-weight: bold;
 }
