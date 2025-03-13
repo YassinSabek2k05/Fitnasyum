@@ -99,6 +99,14 @@ img{
     color: var(--ion-color-primary);
     margin-right: 3px;
 }
+.workout-title ion-label{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.workout-title{
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
 //workout
 .videoPoster{
     position: absolute;
@@ -154,6 +162,10 @@ ion-icon{
 .moves-left span{
     font-size: 1.5rem;
     color: var(--ion-color-primary);
+}
+.nextExcercise{
+    display: flex;
+    justify-content: flex-end;
 }
 .nextExcercise ion-button{
     --background: white;
