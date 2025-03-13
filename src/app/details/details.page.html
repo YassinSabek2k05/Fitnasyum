@@ -1,0 +1,25 @@
+
+
+<ion-content [fullscreen]="true" [class]="switchToWorkout(1)">
+  <div class="background">
+    <img src="{{data.image}}" alt="image" class="image">
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-label>{{data.title}}</ion-label>
+  <ion-label>{{data.decription}}</ion-label>
+</ion-content>
+
+<ion-content [fullscreen]="true" [class]="switchToWorkout(2)">
+    <ion-grid>
+      <ion-progress-bar value="0.25"></ion-progress-bar>
+    </ion-grid>
+</ion-content>
+<ion-button (click)="switchWorkout()">Switch to video</ion-button>
+<ion-button (click)="switchWorkout()">Switch to workout</ion-button>
+
+

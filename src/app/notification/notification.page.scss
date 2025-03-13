@@ -1,9 +1,11 @@
 ion-header{
     padding-left: 20px;
-    
+    padding-top:5vh;
 }
 ion-toolbar{
     --color: var(--ion-color-textcolor);
+    margin:0;
+    padding:0;
 }
 #notifications {
   margin-top: 10px;
@@ -48,7 +50,6 @@ ion-item{
     color: var(--ion-color-textcolor);
 }
 ion-title{
-    margin-top: 5vh;
     font-size: 1.9rem;
     color: var(--ion-color-textcolor);
     font-weight: bold;
