@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.page.html',
@@ -12,22 +12,24 @@ export class SigninPage implements OnInit {
   password: string = '';
   phoneError: boolean = false;
   passwordError: boolean = false;
-  constructor() { }
-  onLogin(){
-    if(this.phone.length != 11 || !isNaN(Number(this.phone))){
-      this.phoneError = true; 
+  constructor(private router: Router) { }
+  onLogin() {
+    this.router.navigateByUrl('/details');
+    return
+    if (this.phone.length != 11 || !isNaN(Number(this.phone))) {
+      this.phoneError = true;
     }
-    else if(this.password.length <= 8){
+    else if (this.password.length <= 8) {
       this.passwordError = true;
     }
-    else{
+    else {
       console.log('Phone Number:', this.phone);
       console.log('user password', this.password);
     }
-    }
+  }
   ngOnInit() {
   }
-  clear(){
+  clear() {
     this.phone = '';
     this.password = '';
   }
