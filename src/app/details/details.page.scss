@@ -1,6 +1,13 @@
-video{
-
-    width: 100%;
+*{
+}
+.back-button{
+    position: absolute;
+    z-index: 1000;
+    font-size: 2.5rem;
+    padding: 15px;
+}
+.back-button{
+    cursor: pointer;
 }
 .hide{
     display: none;
@@ -8,15 +15,23 @@ video{
 .show{
     display: block;
 }
-.background{
+.top-image{
     width: 100%;
     overflow: hidden; 
     position: absolute;
     display: flex;
     flex-direction: column;
     align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
 }
-.background::after{
+img{
+    width: 105%;
+    height: auto;
+    max-height: 100vh;
+}
+.top-image::after{
     content: "";
     position: absolute;
     top: 0;
@@ -25,6 +40,35 @@ video{
     height: 100%;
     background: rgba(0,0,0,0.5);
 }
+.play-btn {
+    width: 15vw;
+    height:15vw;
+    background-color: var(--ion-color-primary); /* Use primary color */
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top:20%;
+    z-index: 1000;
+  }
+  
+  .play-btn:hover {
+    background-color: var(--ion-color-primary);
+  }
+  
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 5vw solid white;
+    border-top: 3vw solid transparent;
+    border-bottom: 3vw solid transparent;
+    position: relative;
+    left: 3px;
+  }
+  
 .img{
     width: 100%;
     max-height: 80%;
@@ -36,4 +80,32 @@ video{
     padding: 0px;
     border: 1px solid var(--ion-color-bordercolor);
     margin-bottom: 20px;
+}
+//workout
+.videoPoster{
+    position: absolute;
+
+    z-index: -1;
+}
+.videoPoster img{
+    min-height: 100vh;
+    width: 100vw;
+}
+.videoPoster::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+.progressBar{
+
+    
+bottom: 0%;
+}
+ion-progress-bar{
+    position: absolute;
 }

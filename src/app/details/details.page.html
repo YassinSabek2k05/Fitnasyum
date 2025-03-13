@@ -1,8 +1,19 @@
-
+<div class="back-button">
+  <ion-icon routerLink="/tabs" name="chevron-back-outline"></ion-icon>
+</div>
 
 <ion-content [fullscreen]="true" [class]="switchToWorkout(1)">
-  <div class="background">
+
+  <div class="top-image">
     <img src="{{data.image}}" alt="image" class="image">
+    <button (click)="switchWorkout()"  class="play-btn">
+      <div class="triangle"></div>
+    </button> 
+  </div>
+  <div class="bottom-details">
+    <div class="workout-details">
+
+    </div>
   </div>
   <ion-grid>
     <ion-row>
@@ -15,11 +26,10 @@
 </ion-content>
 
 <ion-content [fullscreen]="true" [class]="switchToWorkout(2)">
-    <ion-grid>
-      <ion-progress-bar value="0.25"></ion-progress-bar>
-    </ion-grid>
+<div class="videoPoster">
+  <img src="{{data.image}}" alt="image">
+</div>
+<div class="progressBar">
+  <ion-progress-bar value="0.25"></ion-progress-bar>
+</div>
 </ion-content>
-<ion-button (click)="switchWorkout()">Switch to video</ion-button>
-<ion-button (click)="switchWorkout()">Switch to workout</ion-button>
-
-

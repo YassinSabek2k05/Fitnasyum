@@ -31,7 +31,7 @@
     <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
       <swiper-slide *ngFor="let workout of workouts">
         <div class="workout-card">
-          <img [src]="workout.image" sty [alt]="workout.title" />
+          <img  routerLink="/details/1" [src]="workout.image" sty [alt]="workout.title" />
           <h3>{{ workout.title }}</h3>
         </div>
       </swiper-slide>
