@@ -46,3 +46,15 @@
   [buttons]="alertButtons"
   (didDismiss)="clear()">
 </ion-alert>
+<ion-alert
+  [isOpen]="apiError"
+  header="Login Failed"
+  [subHeader]="apiErrorMessage"
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
+</ion-alert>
+<ion-loading
+  [isOpen]="isLoading"
+  message="Logging in..."
+  spinner="crescent">
+</ion-loading>

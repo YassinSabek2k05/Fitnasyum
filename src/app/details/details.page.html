@@ -1,86 +1,25 @@
-<div class="back-button">
-  <ion-icon routerLink="/tabs" name="chevron-back-outline"></ion-icon>
-</div>
+
 
 <ion-content [fullscreen]="true" [class]="switchToWorkout(1)">
-
-  <div class="top-image">
+  <div class="background">
     <img src="{{data.image}}" alt="image" class="image">
-    <button (click)="switchWorkout()"  class="play-btn">
-      <div class="triangle"></div>
-    </button> 
   </div>
-  <ion-grid class="bottom-details">
+  <ion-grid>
     <ion-row>
-      <ion-col size="1"></ion-col>
-      <ion-col size="10">
-        <div class="setDetailsContainer">
-          <span><strong>{{getSetsDetails(0)}}</strong>moves</span>
-          <span><strong>{{getSetsDetails(1)}}</strong>sets</span>
-          <span><strong>{{getSetsDetails(2)}}</strong>min</span>
-        </div>
+      <ion-col size="12">
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col size="1"></ion-col>
-      <ion-col class="workout-title" size="10">
-        <ion-label>{{data.title}}</ion-label>
-      <ion-col size="1"></ion-col>
-      </ion-col>
-      </ion-row>
-      <ion-row>
-      <ion-col size="1"></ion-col>
-      <ion-col size="10">
-        <ion-label><p>{{data.description}}</p></ion-label>
-      <ion-col size="1"></ion-col>
-      </ion-col>
-      </ion-row>
-      <ion-row>
-        <!-- <swiper-container [slidesPerView]="3">
-
-        </swiper-container> -->
-      </ion-row>
   </ion-grid>
+  <ion-label>{{data.title}}</ion-label>
+  <ion-label>{{data.decription}}</ion-label>
 </ion-content>
 
 <ion-content [fullscreen]="true" [class]="switchToWorkout(2)">
-<div class="videoPoster">
-  <img src="{{data.image}}" alt="image">
-</div>
-<ion-grid class="bottom-controls">
-  <ion-row>
-    <ion-col size="0.25"></ion-col>
-    <ion-col size="7.75">
-      <span class="workoutTitle">
-        {{data.title}}
-      </span>
-    </ion-col>
-    <ion-col class="nextExcercise" size="4">
-      <ion-button shape="round" fill="solid">
-        Next Exercise
-      </ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size="0.25"></ion-col>
-    <ion-col  class="moves-left">
-        <strong>{{getMovesLeft()}}</strong><span>Moves</span>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size="1">
-      <div class="control-buttons">
-        <ion-icon [class]="playPauseBtnView('play')" (click)="play()" name="play"></ion-icon>
-        <ion-icon [class]="playPauseBtnView('pause')" (click)="pause()" name="pause"></ion-icon>
-      </div>
-    </ion-col>  
-    <ion-col size="10">
+    <ion-grid>
       <ion-progress-bar value="0.25"></ion-progress-bar>
-    </ion-col>
-    <ion-col size="1">
-      <div class="countDown"><span>00:49</span></div>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
+    </ion-grid>
 </ion-content>
+<ion-button (click)="switchWorkout()">Switch to video</ion-button>
+<ion-button (click)="switchWorkout()">Switch to workout</ion-button>
+
+

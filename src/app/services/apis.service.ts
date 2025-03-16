@@ -2,437 +2,470 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FunctionsService } from './functions.service';
 import { interval, Subject } from 'rxjs';
-import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
-import { takeUntil } from "rxjs/operators"
 import * as CryptoJS from 'crypto-js';
-import { DatePipe } from '@angular/common';
 import { ModalController } from '@ionic/angular';
-import { FirebaseAuthService } from '../firebase/auth/firebase-auth.service';
-import { SpinTheWheelModal } from '../spin-the-wheel-modal/spin-the-wheel-modal.page';
+
 export interface Product {
-  [x: string]: any;
-  id?;
-  name;
-  category_id?;
-  price?;
-  images?;
-  description?;
+  id?: number;
+  name: string;
+  category_id?: number;
+  price?: number;
+  images?: string[];
+  description?: string;
 }
+
 export interface User {
-  [x: string]: any;
   id_customer?: string;
-  firstname?: String;
+  firstname?: string;
   id_gender?: string;
   fullname?: string;
-  customer_group_name?: String;
-  lastname?: String;
-  email?: String;
+  customer_group_name?: string;
+  lastname?: string;
+  email?: string;
   avatarURL?: string;
   avatar_url?: string;
   phoneNumber?: string;
   date_add?: string;
   address?: string;
-  position?: String;
-  telephone?: String;
-  profile_image?: String;
+  position?: string;
+  telephone?: string;
+  profile_image?: string;
 }
+
 export interface Shift {
-  user_id?: String;
+  user_id?: string;
   shift_date?: Date;
-  shift_start_time: String;
-  shift_end_time: String;
-  extra_feature_object: String;
-  hour_rate: String;
-  total_rate: String;
-  total_working_hour: String;
-  notes: String;
+  shift_start_time: string;
+  shift_end_time: string;
+  extra_feature_object: string;
+  hour_rate: string;
+  total_rate: string;
+  total_working_hour: string;
+  notes: string;
 }
+
+interface ApiResponse {
+  result?: boolean;
+  message?: string;
+  user_data?: User;
+  data?: any;
+  products?: Product[];
+  categories?: any[];
+  amount?: number;
+  totalPoints?: string;
+  nextExpireDate?: { date_added: string; expiration_date: string; points_value: string };
+  all_movements?: any[];
+}
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApisService {
-  [x: string]: any;
-  //https://apis-jazeera-paints.delicals.com/
-  //https://apis-jazeera-paints.delicals.com/
-  //http://ashanak.jazeerapaints.com/
-  urlPrefix = "https://apis.ashanak.jazeerapaints.com/";
-  urlPrefixPayment = "https://apis.ashanak.jazeerapaints.com/";
+  urlPrefix = 'https://fitnasyumapis.laviedentalcenter.com/';
+  urlPrefixPayment = 'https://fitnasyumapis.laviedentalcenter.com/';
   encryptionKey: string = 'MarketSceneJP';
-  products_array: Product[];
-  category_products = [];
-  userwalletamount; userTotalPoints; PointsRedmedBefore;
-  CustomerData: User;
-  showMobileRecharge = false;
-  showOptionalSignUp = true;
-  products_catl_imgs = [];
-  schwabe_products = [];
-  networksArray = [];
-  show_rooms: any;
-  appCommi = 5;
-  subscribe;
-  positions;
-  softwares;
-  homepageSlider = ['', '', ''];
-  showGuestLogin = true;
-  bypassPhoneNumbers = [];
-  lastNotif;
+  products_array: Product[] = [];
+  category_products: any[] = [];
+  userwalletamount: number = 0;
+  userTotalPoints: number = 0;
+  PointsRedmedBefore: number = 0;
+  CustomerData: User = {};
+  showMobileRecharge: boolean = false;
+  showOptionalSignUp: boolean = true;
+  products_catl_imgs: any[] = [];
+  schwabe_products: any[] = [];
+  networksArray: any[] = [];
+  show_rooms: any = null;
+  appCommi: number = 5;
+  subscribe: any = null;
+  positions: any = null;
+  softwares: any = null;
+  homepageSlider: string[] = ['', '', ''];
+  showGuestLogin: boolean = true;
+  bypassPhoneNumbers: string[] = [];
+  lastNotif: any = null;
   pharmacyOwner: boolean = true;
-  thirdTierPerc: any = 0;
-  secondTierPerc: any = 0;
-  firstTierPerc: any = 0;
+  thirdTierPerc: number = 0;
+  secondTierPerc: number = 0;
+  firstTierPerc: number = 0;
   tempImage: string = '';
-  nextExpireCreditDataObj = { date_added: "خطء", expiration_date: "خطء", points_value: "خطء" }
-  allMovementsWallet = [];
-  notifier = new Subject();
-  isCustomerEligableForSpinAndWin = false;
-  alreadySpinOpenedThisSession = false;
-  constructor(private modalController: ModalController, private httpClient: HttpClient, private auth: FirebaseAuthService, private fun: FunctionsService, private barcode: BarcodeScanner) {
+  nextExpireCreditDataObj = { date_added: 'خطء', expiration_date: 'خطء', points_value: 'خطء' };
+  allMovementsWallet: any[] = [];
+  notifier = new Subject<void>();
+  isCustomerEligableForSpinAndWin: boolean = false;
+  alreadySpinOpenedThisSession: boolean = false;
+
+  constructor(
+    private modalController: ModalController,
+    private httpClient: HttpClient,
+    private fun: FunctionsService
+  ) {
     this.setUserData();
-    this.getWalletAmount();
-    this.getTiersData();
-    this.getProductsAndCategories();
-    // this.getBebastaProviderListOfServices(146)
-    //this.getBebastaRechargeGetServiceInputParamter(283813)
-    //this.getBebastaproviderList(11);
-    setTimeout(() => {
-      this.RealTimeUpdate();
-    }, 1000);
-    setTimeout(() => {
-      //this.qrCodeGenerate(this.CustomerData.refer_code);
-      // this.fromBarCodeToPoints('TQ9MRUI08RT8J26GD9N46KWSM0EAH3RALJAZEERA');
-    }, 5000);
   }
-  post(url, body) {
-    let requestUrl = `${this.urlPrefix}${url}`;
-    // Retrieve the token (e.g., from local storage or a service)
-    const token = localStorage.getItem('token'); // Adjust the token retrieval method if needed
-    //const { iv, encryptedData } = this.encryptWithIV(, secretKey);
+
+  // setCustomerData(data: User) {
+  //   this.CustomerData = data;
+  // }
+
+  getCustomerData(): User {
+    return this.CustomerData;
+  }
+
+  post(url: string, body: any): Promise<ApiResponse | undefined> {
+    const requestUrl = `${this.urlPrefix}${url}`;
+    const token = localStorage.getItem('token') || '';
     const strignifedBody = JSON.stringify(body);
     const bodyEncrypted = this.encryptString(strignifedBody, this.encryptionKey, true);
-    // Set the headers with the token 
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     });
-    return this.httpClient.post(requestUrl, { encryptedData: bodyEncrypted }, { headers }).toPromise();
+    return this.httpClient.post<ApiResponse>(requestUrl, { encryptedData: bodyEncrypted }, { headers }).toPromise();
   }
-  encryptString(text, secretkey, raw) {
-    let iv = CryptoJS.SHA256(secretkey).toString().substring(0, 16)
-    iv = CryptoJS.enc.Utf8.parse(iv)
-    let encrypted = CryptoJS.AES.encrypt(text, secretkey, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 })
-    let encryptedString = encrypted.toString()
-    if (raw) { return encryptedString }
-    // + durch _ ersetzen wegen GET Übergabe Problem (+ als Leerzeichen vom PHP angenommen und deswegen falsch enkodiert)
-    return encryptedString.replace(/\+/g, '_')
+
+  encryptString(text: string, secretkey: string, raw: boolean): string {
+    const iv = CryptoJS.enc.Utf8.parse(CryptoJS.SHA256(secretkey).toString().substring(0, 16));
+    const encrypted = CryptoJS.AES.encrypt(text, secretkey, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7,
+    });
+    const encryptedString = encrypted.toString();
+    return raw ? encryptedString : encryptedString.replace(/\+/g, '_');
   }
-  post_outside(url, body) {
+
+  post_outside(url: string, body: any): Promise<any> {
     return this.httpClient.post(url, body).toPromise();
   }
-  post_for_files(url, body) {
-    let requestUrl = `${this.urlPrefix}${url}`;
+
+  post_for_files(url: string, body: any): Promise<any> {
+    const requestUrl = `${this.urlPrefix}${url}`;
     return this.httpClient.post(requestUrl, body).toPromise();
   }
+
   RealTimeUpdate() {
-    this.subscribe = interval(10000).subscribe(x => {
+    this.subscribe = interval(10000).subscribe(() => {
       if (this.CustomerData?.id_customer) {
         this.getWalletAmount();
         this.getUserLastNotification();
-        this.getTiersData()
+        this.getTiersData();
         this.checkIfAccountBlocked();
       }
     });
   }
-  getBebastaRechargeGetServiceInputParamter(service_id) {
-    this.post('bebasata/BebastaRechargeGetServiceInputParamter', { "id_customer": this.CustomerData.id_customer, "service_id": service_id }).then((res) => {
-      console.log(res)
-    }).catch((err) => {
-      console.log(err);
+
+  getBebastaRechargeGetServiceInputParamter(service_id: number) {
+    this.post('bebasata/BebastaRechargeGetServiceInputParamter', {
+      id_customer: this.CustomerData.id_customer,
+      service_id: service_id,
     })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  getBebastaproviderList(service_id) {
-    this.post('bebasata/BebastaGetProviderList', { "id_customer": this.CustomerData.id_customer, "service_id": service_id }).then((res) => {
-      console.log(res)
-    }).catch((err) => {
-      console.log(err);
+
+  getBebastaproviderList(service_id: number) {
+    this.post('bebasata/BebastaGetProviderList', {
+      id_customer: this.CustomerData.id_customer,
+      service_id: service_id,
     })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  getBebastaProviderListOfServices(provider_id) {
-    this.post('bebasata/BebastaGetServiceListForProvider', { "id_customer": this.CustomerData.id_customer, "service_id": provider_id }).then((res) => {
-      console.log(res)
-    }).catch((err) => {
-      console.log(err);
+
+  getBebastaProviderListOfServices(provider_id: number) {
+    this.post('bebasata/BebastaGetServiceListForProvider', {
+      id_customer: this.CustomerData.id_customer,
+      service_id: provider_id,
     })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  copounApply(CopounCode) {
-    if (!CopounCode) return this.fun.errorToast("من فضلك ادخل الكوبون");
-    if (CopounCode.length < 5) return this.fun.errorToast("ادخل كوبون صحيح");
+
+  async copounApply(CopounCode: string): Promise<void> {
+    if (!CopounCode) {
+      await this.fun.errorToast('من فضلك ادخل الكوبون');
+      return;
+    }
+    if (CopounCode.length < 5) {
+      await this.fun.errorToast('ادخل كوبون صحيح');
+      return;
+    }
     console.log(CopounCode);
-    this.fun.presentLoader();
-    this.post("coupons/Redeem", { "userId": this.CustomerData.id_customer, "code": CopounCode }).then((res) => {
+    await this.fun.presentLoader();
+    try {
+      const res = await this.post('coupons/Redeem', { userId: this.CustomerData.id_customer, code: CopounCode });
       console.log(res);
-      let message = '';
-      if (res['result']) {
-        this.fun.presentToast(" تم اضافة" + res['amount'] + "نقطة الى محفطتك ", false, "bottom", 10000);
+      if (res?.result) {
+        await this.fun.presentToast(`تم اضافة ${res.amount} نقطة الى محفطتك`, false, 'bottom', 10000);
       } else {
-        this.fun.errorToast(res['message']);
+        await this.fun.errorToast(res?.message || 'Error');
       }
-    }).catch((err) => {
-      console.log(err)
-    }).finally(() => {
-      this.fun.loadingController.dismiss();
-    })
+    } catch (err) {
+      console.log(err);
+    } finally {
+      await this.fun.loadingController.dismiss();
+    }
   }
+
   checkIfAccountBlocked() {
-    if (this.CustomerData.id_customer.length > 0) {
-      this.post('auth/CheckIfUserActive', { "customer_id": this.CustomerData.id_customer }).then((res) => {
-        if (res['result']) {
-        } else {
-          this.fun.errorToast(res['message']);
-          this.auth.signOut().subscribe((res) => {
+    if (this.CustomerData.id_customer && this.CustomerData.id_customer.length > 0) {
+      this.post('auth/CheckIfUserActive', { customer_id: this.CustomerData.id_customer })
+        .then((res) => {
+          if (!res?.result) {
+            this.fun.errorToast(res?.message || 'Account blocked');
             localStorage.clear();
             this.CustomerData = {};
             this.fun.navigate('firebase/auth/sign-in', false);
-          })
-        }
-      }).catch((err) => { })
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
 
   getTiersData() {
-
     if (this.userTotalPoints) {
-
-      this.thirdTierPerc = (this.userTotalPoints / 25000).toFixed(2);
-      this.secondTierPerc = (this.userTotalPoints / 50000).toFixed(2);
-      this.firstTierPerc = (this.userTotalPoints / 100000).toFixed(2);
+      this.thirdTierPerc = Number((this.userTotalPoints / 25000).toFixed(2));
+      this.secondTierPerc = Number((this.userTotalPoints / 50000).toFixed(2));
+      this.firstTierPerc = Number((this.userTotalPoints / 100000).toFixed(2));
       if (this.thirdTierPerc >= 1) {
-        this.secondTierPerc = (this.userTotalPoints / 50000).toFixed(2);
+        this.secondTierPerc = Number((this.userTotalPoints / 50000).toFixed(2));
         this.thirdTierPerc = 1;
       }
       if (this.secondTierPerc >= 1) {
-        this.firstTierPerc = (this.userTotalPoints / 100000).toFixed(2);
-        this.secondTierPerc = 1
+        this.firstTierPerc = Number((this.userTotalPoints / 100000).toFixed(2));
+        this.secondTierPerc = 1;
       }
       if (this.firstTierPerc > 1) {
         this.firstTierPerc = 1;
       }
-
     }
   }
-  /* account deletion function */
-  async accountDeactivate() {
-    this.fun.presentLoader()
-    return this.post("auth/deleteAcc", { "Token": "HELLOFROMTHEOTHERSIDE", "customer_id": this.CustomerData.id_customer });
+
+  async accountDeactivate(): Promise<ApiResponse | undefined> {
+    await this.fun.presentLoader();
+    return this.post('auth/deleteAcc', {
+      Token: 'HELLOFROMTHEOTHERSIDE',
+      customer_id: this.CustomerData.id_customer,
+    });
   }
-  getPointsForAchiv(tier) {
+
+  getPointsForAchiv(tier: string): number | undefined {
     switch (tier) {
       case 'thirdtier':
-        if (this.userTotalPoints >= 25000) {
-          return 25000;
-        } else {
-          return this.userTotalPoints;
-        }
-        break;
+        return this.userTotalPoints >= 25000 ? 25000 : this.userTotalPoints;
       case 'secondtier':
-        if (this.userTotalPoints >= 50000) {
-          return 50000;
-        } else {
-          return this.userTotalPoints;
-        }
-        break;
+        return this.userTotalPoints >= 50000 ? 50000 : this.userTotalPoints;
       case 'firsttier':
-        if (this.userTotalPoints >= 100000) {
-          return 100000;
-        } else {
-          return this.userTotalPoints;
-        }
-        break;
+        return this.userTotalPoints >= 100000 ? 100000 : this.userTotalPoints;
+      default:
+        return undefined;
     }
   }
-  postWithHeaders(url, body) {
-    let head = new HttpHeaders();
-    head.append("Accept", 'application/json');
-    head.append('Content-Type', 'application/json');
+
+  postWithHeaders(url: string, body: any): Promise<any> {
+    const head = new HttpHeaders()
+      .append('Accept', 'application/json')
+      .append('Content-Type', 'application/json');
     const formData = new FormData();
-    //for
-    Object.keys(body).forEach(function (key, index) {
-      // console.log(body[key]);
+    Object.keys(body).forEach((key) => {
       formData.append(key, body[key]);
-    })
-    let requestUrl = `${this.urlPrefixPayment}${url}`;
+    });
+    const requestUrl = `${this.urlPrefixPayment}${url}`;
     return this.httpClient.post(requestUrl, formData, { headers: head }).toPromise();
   }
-  postWithHeaderstest(url, body) {
-    let head = new HttpHeaders();
-    head.append("Accept", 'application/json');
-    head.append('Content-Type', 'application/json');
+
+  postWithHeaderstest(url: string, body: any): any {
+    const head = new HttpHeaders()
+      .append('Accept', 'application/json')
+      .append('Content-Type', 'application/json');
     const formData = new FormData();
-    //for
-    Object.keys(body).forEach(function (key, index) {
-      // console.log(body[key]);
+    Object.keys(body).forEach((key) => {
       formData.append(key, body[key]);
-    })
-    let requestUrl = `${this.urlPrefixPayment}${url}`;
+    });
+    const requestUrl = `${this.urlPrefixPayment}${url}`;
     return this.httpClient.post(requestUrl, formData, { headers: head });
   }
-  checkForUpdate() {
-    return this.post("auth/AppVersion", {});
+
+  checkForUpdate(): Promise<ApiResponse | undefined> {
+    return this.post('auth/AppVersion', {});
   }
-  qrCodeGenerate() {
-    this.barcode.encode(this.barcode.Encode.TEXT_TYPE, this.CustomerData.refer_code).then((encodedData) => {
-      console.log(encodedData);
-      const tempImage = "file://" + encodedData.file;
-      this.tempImage = tempImage;
-    }, (err) => {
-      console.log('Error occured : ' + err);
-    }).catch(err => {
-      console.log('hereiam', err);
-    })
-  }
+
   getWalletAmount() {
     if (this.CustomerData?.id_customer) {
-      this.post("auth/walletAmount", { "user_id": this.CustomerData.id_customer })
-        .then((values: any) => {
+      this.post('auth/walletAmount', { user_id: this.CustomerData.id_customer })
+        .then((values: ApiResponse | undefined) => {
           console.log(values);
-          this.userwalletamount = values.data.amount ? values.data.amount : 0
-          this.userTotalPoints = values.data.totalPoints ? values.data.totalPoints : "0";
-          this.PointsRedmedBefore = (Number(this.userTotalPoints) - Number(this.userwalletamount)).toString()
-          this.nextExpireCreditDataObj = values.nextExpireDate ? values.nextExpireDate : this.nextExpireCreditDataObj;
-          this.allMovementsWallet = values.all_movements ? values.all_movements : this.allMovementsWallet;
-          if (this.userTotalPoints >= 25000 && this.CustomerData.position !== 'silver_customer' && this.CustomerData.position != 'gold_customer' && this.CustomerData.position != 'plat_customer') {
-            // this.fun.presentToast("مبروك انت الان على الشريحة الفضي و تم اضافة ١٢٠٠ نقطة في رصيد نقاطك", false, "middle", 3000);
-            //then update customer data onback end and on memory and add extra points.
-            this.post("wallet/UpgradeProfile", { "token": "c6d01ceb06b92a7ceca9a9b0db410ff1", "customer_id": this.CustomerData.id_customer, "nextLevel": "silver_customer" }).then((res => {
-              if (res['result']) {
-                this.CustomerData = res['user_data'];
-                localStorage.setItem('jazeera_backend_data', JSON.stringify(res['user_data']));
-                this.fun.presentToast(res['message'], false, "middle", 10000);
+          this.userwalletamount = values?.data?.amount || 0;
+          this.userTotalPoints = Number(values?.data?.totalPoints || '0');
+          this.PointsRedmedBefore = this.userTotalPoints - this.userwalletamount;
+          this.nextExpireCreditDataObj = values?.nextExpireDate || this.nextExpireCreditDataObj;
+          this.allMovementsWallet = values?.all_movements || this.allMovementsWallet;
+          if (
+            this.userTotalPoints >= 25000 &&
+            this.CustomerData.position !== 'silver_customer' &&
+            this.CustomerData.position !== 'gold_customer' &&
+            this.CustomerData.position !== 'plat_customer'
+          ) {
+            this.post('wallet/UpgradeProfile', {
+              token: 'c6d01ceb06b92a7ceca9a9b0db410ff1',
+              customer_id: this.CustomerData.id_customer,
+              nextLevel: 'silver_customer',
+            }).then((res) => {
+              if (res?.result) {
+                this.CustomerData = res.user_data || {};
+                if (res.user_data) {
+                  localStorage.setItem('fitnasyum_backend_data', JSON.stringify(res.user_data));
+                }
+                this.fun.presentToast(res.message || 'Upgraded', false, 'middle', 10000);
               } else {
-                this.CustomerData = res['user_data'];
-                localStorage.setItem('jazeera_backend_data', JSON.stringify(res['user_data']));
-                this.fun.errorToast(res['message'])
+                this.CustomerData = res?.user_data || {};
+                if (res?.user_data) {
+                  localStorage.setItem('fitnasyum_backend_data', JSON.stringify(res.user_data));
+                }
+                this.fun.errorToast(res?.message || 'Error');
               }
-            }))
+            });
           }
-          if (this.userTotalPoints >= 50000 && this.CustomerData.position != 'gold_customer' && this.CustomerData.position != 'plat_customer') {
-            this.post("wallet/UpgradeProfile", { "token": "c6d01ceb06b92a7ceca9a9b0db410ff1", "customer_id": this.CustomerData.id_customer, "nextLevel": "gold_customer" }).then((res => {
-              console.log(res)
-              if (res['result']) {
-                this.CustomerData = res['user_data'];
-                localStorage.setItem('jazeera_backend_data', JSON.stringify(res['user_data']));
-                this.fun.presentToast(res['message'], false, "middle", 10000);
+          if (
+            this.userTotalPoints >= 50000 &&
+            this.CustomerData.position !== 'gold_customer' &&
+            this.CustomerData.position !== 'plat_customer'
+          ) {
+            this.post('wallet/UpgradeProfile', {
+              token: 'c6d01ceb06b92a7ceca9a9b0db410ff1',
+              customer_id: this.CustomerData.id_customer,
+              nextLevel: 'gold_customer',
+            }).then((res) => {
+              if (res?.result) {
+                this.CustomerData = res.user_data || {};
+                if (res.user_data) {
+                  localStorage.setItem('fitnasyum_backend_data', JSON.stringify(res.user_data));
+                }
+                this.fun.presentToast(res.message || 'Upgraded', false, 'middle', 10000);
               } else {
-                this.CustomerData = res['user_data'];
-                localStorage.setItem('jazeera_backend_data', JSON.stringify(res['user_data']));
-                this.fun.errorToast(res['message'])
+                this.CustomerData = res?.user_data || {};
+                if (res?.user_data) {
+                  localStorage.setItem('fitnasyum_backend_data', JSON.stringify(res.user_data));
+                }
+                this.fun.errorToast(res?.message || 'Error');
               }
-            }))
+            });
           }
-          if (this.userTotalPoints >= 100000 && this.CustomerData.position != 'plat_customer') {
-            this.post("wallet/UpgradeProfile", { "token": "c6d01ceb06b92a7ceca9a9b0db410ff1", "customer_id": this.CustomerData.id_customer, "nextLevel": "plat_customer" }).then((res => {
-              console.log(res)
-              if (res['result']) {
-                this.CustomerData = res['user_data'];
-                localStorage.setItem('jazeera_backend_data', JSON.stringify(res['user_data']));
-                this.fun.presentToast(res['message'], false, "middle", 10000);
+          if (this.userTotalPoints >= 100000 && this.CustomerData.position !== 'plat_customer') {
+            this.post('wallet/UpgradeProfile', {
+              token: 'c6d01ceb06b92a7ceca9a9b0db410ff1',
+              customer_id: this.CustomerData.id_customer,
+              nextLevel: 'plat_customer',
+            }).then((res) => {
+              if (res?.result) {
+                this.CustomerData = res.user_data || {};
+                if (res.user_data) {
+                  localStorage.setItem('fitnasyum_backend_data', JSON.stringify(res.user_data));
+                }
+                this.fun.presentToast(res.message || 'Upgraded', false, 'middle', 10000);
               } else {
-                this.CustomerData = res['user_data'];
-                localStorage.setItem('jazeera_backend_data', JSON.stringify(res['user_data']));
-                this.fun.errorToast(res['message'])
+                this.CustomerData = res?.user_data || {};
+                if (res?.user_data) {
+                  localStorage.setItem('fitnasyum_backend_data', JSON.stringify(res.user_data));
+                }
+                this.fun.errorToast(res?.message || 'Error');
               }
-            }))
-
+            });
           }
-
-        }).catch((err) => {
-          console.log(err);
         })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
-  openBarCodeReader() {
-    const options: BarcodeScannerOptions = {
-      preferFrontCamera: false,
-      showFlipCameraButton: true,
-      showTorchButton: true,
-      torchOn: false,
-      disableSuccessBeep: false,
-      prompt: 'يرجى تسكين شكل الكود بالكامل داخل المربع ',
-      resultDisplayDuration: 500,
-      formats: 'EAN_13,EAN_8,CODE_39,CODE_93,CODE_128,PDF_417,EAN_13,EAN_8,QR_CODE,PDF_417',
-      orientation: 'portrait',
-    };
-    this.barcode.scan(options).then((barcode_data) => {
-      /* this.fun.presentToast(JSON.stringify(barcode_data), false, 'bottom', 10000); */
-      this.fromBarCodeToPoints(barcode_data['text']);
-    }).catch((err) => {
-      console.log(this.fun.errorToast(err));
-    })
-  }
-  getShowrooms() {
-    this.post('auth/GetShowRooms', {}).then((res) => {
-      this.show_rooms = res['data'];
-      return this.show_rooms;
-    })
-  }
-  getProductsAndCategories() {
-    this.post('auth/GetProductsAndCategories', {}).then(res => {
 
-      this.products_array = res['products'];
-      this.category_products = res['categories'];
-      /*       console.log(res['products'], 'products is here');
-            console.log(res['categories'], 'categories is here'); */
-    }).catch((err) => {
-      console.log(err);
-    })
+  getShowrooms() {
+    this.post('auth/GetShowRooms', {})
+      .then((res) => {
+        this.show_rooms = res?.data || null;
+        return this.show_rooms;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  fromBarCodeToPoints(qrCodeValue) {
-    const token = "c6d01ceb06b92a7ceca9a9b0db410ff1";
+
+  getProductsAndCategories() {
+    this.post('auth/GetProductsAndCategories', {})
+      .then((res) => {
+        this.products_array = res?.products || [];
+        this.category_products = res?.categories || [];
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  fromBarCodeToPoints(qrCodeValue: string) {
+    const token = 'c6d01ceb06b92a7ceca9a9b0db410ff1';
     this.fun.presentLoader();
-    this.post("wallet/FromCodeToPoints", { "token": token, "customer_id": this.CustomerData.id_customer, "qr_code": qrCodeValue }).then((res) => {
-      console.log(res);
-      if (res['result']) {
-        this.fun.presentToast(res['message'], false, 'bottom', 10000);
-      } else {
-        this.fun.errorToast(res['message']);
-      }
-    }).catch((err) => {
-      console.log(err);
-    }).finally(() => {
-      this.fun.loadingController.dismiss();
+    this.post('wallet/FromCodeToPoints', {
+      token: token,
+      customer_id: this.CustomerData.id_customer,
+      qr_code: qrCodeValue,
     })
+      .then((res) => {
+        console.log(res);
+        if (res?.result) {
+          this.fun.presentToast(res.message || 'Success', false, 'bottom', 10000);
+        } else {
+          this.fun.errorToast(res?.message || 'Error');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        this.fun.loadingController.dismiss();
+      });
   }
 
   getUserLastNotification() {
-    this.post('notifications/GetLastNotif', { "user_id": this.CustomerData?.id_customer }).then(res => {
-      this.isCustomerEligableForSpinAndWin = true;
-      //this.openSpinAndWin({});
-      this.lastNotif = res['data'];
-    }).catch(err => {
-      console.log(err)
-    })
+    this.post('notifications/GetLastNotif', { user_id: this.CustomerData?.id_customer })
+      .then((res) => {
+        this.isCustomerEligableForSpinAndWin = true;
+        this.lastNotif = res?.data || null;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
+
   setUserData() {
-    const UserObj = localStorage.getItem("jazeera_backend_data");
+    const UserObj = localStorage.getItem('fitnasyum_backend_data');
     if (UserObj) {
       this.CustomerData = JSON.parse(UserObj);
-      this.getUserLastNotification();
-      this.getWalletAmount();
-      //(this.CustomerData.refer_code);
     }
   }
-  async openSpinAndWin(segements) {
-    if (this.isCustomerEligableForSpinAndWin && !this.alreadySpinOpenedThisSession) {
-      const modal = await this.modalController.create({
-        component: SpinTheWheelModal,
-        swipeToClose: true,
-        componentProps: {
-          'saa': segements,
-        },
-        cssClass: 'spin-and-win-modal',
-      });
-      await modal.present();
-      this.alreadySpinOpenedThisSession = true;
-    } else {
 
-    }
+  isHealthInfoRegistered() {
+    return this.post('auth/isHealthInfoRegistered', { id_customer: this.CustomerData?.id_customer })
+      .then((res) => {
+        return res?.result || false;
+      })
+      .catch((err) => {
+        console.error('Error checking health info registration:', err); 
+        return false;
+      });
   }
+
+
 }

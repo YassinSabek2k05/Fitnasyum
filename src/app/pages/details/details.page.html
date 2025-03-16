@@ -166,7 +166,7 @@
                     </div>
                     <!-- The actual range slider -->
                     <ion-range value="100" pin="true" [ticks]="false" [snaps]="true" [step]="2" [min]="30"
-                      [max]="140"></ion-range>
+                      [max]="140" (ionChange)="onWieghtChange($event)"></ion-range>
                   </div>
                   <div class="tick-labels">
                     <span class="tick-label
@@ -391,7 +391,7 @@
                       (click)="goalChange('Lose Weight')">LoseWeight</ion-label>
                     <ion-label [ngClass]="goalFocus('Get Fitter')" (click)="goalChange('Get Fitter')">Get
                       Fitter</ion-label>
-                    <ion-label [ngClass]="goalFocus('>Gain Muscles')" (click)="goalChange('>Gain Muscles')">Gain
+                    <ion-label [ngClass]="goalFocus('Gain Muscles')" (click)="goalChange('Gain Muscles')">Gain
                       Muscles</ion-label>
                     <ion-label [ngClass]="goalFocus('Increase Flexibility')"
                       (click)="goalChange('Increase Flexibility')">Increase Flexibility</ion-label>
@@ -458,13 +458,13 @@
         <ion-button [ngClass]="btnView('next')" class="UserBtn" shape="round" (click)="goNext()">Next</ion-button>
         <ion-row>
           <ion-button [ngClass]="btnView('role')" class="UserBtn" shape="round" expand="block"
-            (click)="goNext()">User</ion-button>
+            (click)="selectAccountType('User')">User</ion-button>
           <ion-button [ngClass]="btnView('ready')" class="UserBtn" shape="round" expand="block" (click)="getStartBtn()">Get
             Started!</ion-button>
         </ion-row>
         <ion-row>
           <ion-button [ngClass]="btnView('role')" class="CoachBtn" shape="round" expand="block"
-            (click)="goNext()">Coach</ion-button>
+            (click)="selectAccountType('Coach')">Coach</ion-button>
         </ion-row>
       </ion-col>
       <ion-col size="1"></ion-col>
@@ -491,3 +491,16 @@
   </ion-picker-column>
 </ion-picker>
 </div> -->
+
+<ion-loading
+  [isOpen]="isLoading"
+  message="Processing..."
+  spinner="crescent">
+</ion-loading>
+<ion-alert
+  [isOpen]="apiError"
+  header="Failed"
+  [subHeader]="apiErrorMessage"
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
+</ion-alert>

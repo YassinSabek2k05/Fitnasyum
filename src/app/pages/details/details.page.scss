@@ -8,14 +8,7 @@ ion-datetime {
   --wheel-highlight-border-radius: 48px;
   //--wheel-fade-background-rgb: 245, 235, 247;
 }
-:host .picker-before {
-  background: white !important;
-}
-:host .picker-highlit {
-}
-/* ion-picker {
-  --highlight-background: #141414;
-} */
+
 ion-datetime::part(wheel-item) {
   color: rgb(255, 255, 255);
 }
@@ -328,7 +321,7 @@ ion-range::part(knob)::after {
   border-bottom: 10px solid var(--ion-color-primary); // triangle color
 }
 ion-range::part(pin) {
-  display: block !important;
+  display: block !important; 
   opacity: 1 !important;
   transform: translateY(-10px);
   color: var(--ion-color-primary);
@@ -354,18 +347,19 @@ ion-range::part(pin)::after {
 
 .ticks-overlay {
   position: absolute;
-  top: 50%;
+  top: 50%; 
   left: 0;
   width: 100%;
   height: 10px;
   pointer-events: none;
 }
 
+
 .tick {
   position: absolute;
   min-width: 1px;
   max-width: 1px;
-  height: 20px;
+  height: 20px; 
   background: #fff;
   transform: translateX(-100%);
   margin: 0;
@@ -375,19 +369,20 @@ ion-range::part(pin)::after {
   position: absolute;
   width: 0.5px;
   max-width: 0.5px;
-  height: 10px;
+  height: 10px; 
   background: #fff;
   transform: translateX(-100%);
   margin: 0;
 }
 .tick-labels {
   position: absolute;
-  top: 100%;
+  top: 100%; 
   left: 0;
   width: 100%;
   height: 10px;
   pointer-events: none;
 }
+
 
 .tick-label {
   position: absolute;
@@ -413,7 +408,6 @@ ion-picker-column-option[selected] {
   color: #50fa7b !important; // Light green for selected text
   font-weight: bold;
 } */
-
 .picker {
   transform: rotate(90deg); /* Rotate 90 degrees */
 }

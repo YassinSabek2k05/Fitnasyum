@@ -1,6 +1,9 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 import { FunctionsService } from 'src/app/services/functions.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ApisService } from 'src/app/services/apis.service';
 
 register();
 @Component({
@@ -29,6 +32,7 @@ export class DetailsPage implements OnInit {
     anemia: false,
     other: false,
   };
+  selectedDiseasesType: string = '';
   tmp: number[] = [];
   fatLevel: number = 0;
   level: String = 'Intermediate';
@@ -39,8 +43,21 @@ export class DetailsPage implements OnInit {
   maxDate = new Date().toISOString().split('T')[0]; // Today's date
   selectedDate: string = '1990-01-21';
   selectedGender: string = '';
+  selectedWeight: number = 0;
+  selectedHeight: number = 0;
+  selectedAccountType: String = '';
   public progress = 0;
-  constructor(public fun: FunctionsService) {
+  isLoading: boolean = false;
+  apiError: boolean = false;
+  apiErrorMessage: string = '';
+  alertButtons = ['Retry'];
+  apiUrl = "https://fitnasyumapis.laviedentalcenter.com/auth/insertCustomerHealthInfo";
+  constructor(
+    public fun: FunctionsService,
+    private http: HttpClient,
+    private router: Router,
+    private apiService: ApisService,
+  ) {
   }
 
   ngOnInit() {
@@ -77,6 +94,7 @@ export class DetailsPage implements OnInit {
     return 0;
   }
   goNext() {
+    if (!this.validateCurrentSlide()) return;
     if (this.swiperInstance) {
       this.progressCurrent();
       this.swiperInstance.slideNext();
@@ -85,6 +103,74 @@ export class DetailsPage implements OnInit {
     }
 
   }
+
+  validateCurrentSlide(): boolean {
+    const index = this.swiperInstance.activeIndex;
+    switch (index) {
+      case 0: return !!this.selectedGender;
+      case 1: return !!this.selectedDate;
+      case 2: return this.selectedWeight >= 30;
+      case 3: return this.selectedHeight >= 140;
+      case 4: return this.fatLevel > 0;
+      case 5: return !!this.level;
+      case 6: 
+        if (this.diseases === "no") return true;
+        if (this.diseases === "yes" && this.selectedDiseasesType) return true;
+        return false;
+      case 7: return !!this.smoke;
+      case 8: return !!this.goal;
+      default: return true;
+    }
+  }
+
+  insertHelathInfoApi() {
+
+    const id_customer =  this.apiService.CustomerData?.id_customer;
+
+    if(id_customer) {
+
+      const apiData = {
+        id_customer: id_customer,
+        gender: this.selectedGender,
+        birth_date: this.selectedDate, 
+        weight: this.selectedWeight,
+        height: this.selectedHeight,
+        fat_level: this.fatLevel,
+        fitness_level: this.level,
+        is_diseased: this.diseases,
+        disease_type: this.selectedDiseasesType,
+        is_smoke: this.smoke,
+        goal: this.goal,
+        account_type: this.selectedAccountType,
+      };
+
+      this.http.post(this.apiUrl, apiData).subscribe({
+        next: (response: any) => {
+          this.isLoading = false;
+          if (response?.result) { 
+  
+            setTimeout(() => {
+              this.router.navigate(['/tabs']).then(() => {
+                window.location.reload();
+              });
+            }, 100); 
+  
+          } else {
+            this.apiErrorMessage = response?.message || 'Unexpected error occurred';
+            this.apiError = true;
+          }
+        },
+        error: (error) => {
+          this.isLoading = false;
+          this.apiErrorMessage = error?.error?.message || 'An error occurred.';
+          this.apiError = true;
+        }
+      });
+
+    }
+    
+  }
+  
   getActiveIndex() {
     if (this.swiperInstance) {
       return this.swiperInstance.activeIndex + 1;
@@ -101,7 +187,7 @@ export class DetailsPage implements OnInit {
     console.log(this.swiperRef?.nativeElement.swiper.activeIndex);
   }
   getStartBtn() {
-    this.fun.navigate('tabs/home', false)
+    this.insertHelathInfoApi();
   }
   genderFocus(state: string) {
     if (state == this.selectedGender)
@@ -167,7 +253,14 @@ export class DetailsPage implements OnInit {
     }
     return [];
   }
+
+  onWieghtChange(event: CustomEvent) {
+    this.selectedWeight = event.detail.value;
+    console.log(event.detail.value);
+  }
+
   onHeightChange(event: CustomEvent) {
+    this.selectedHeight = event.detail.value;
     console.log(event.detail.value);
   }
   focusFat(i: number) {
@@ -210,7 +303,8 @@ export class DetailsPage implements OnInit {
   }
   diseaseTypeChange(str: string): void {
     this.diseasesTypes[str] = !this.diseasesTypes[str];
-    console.log(str);
+    this.selectedDiseasesType = str;
+    console.log(this.selectedDiseasesType);
   }
   //smoke
 
@@ -233,6 +327,15 @@ export class DetailsPage implements OnInit {
     this.goal = str;
     console.log(str);
   }
+
+  selectAccountType(type: string) {
+    this.selectedAccountType = type;
+    console.log(this.selectedAccountType);
+    this.goNext();
+  }
+
+
+
   onDateChange(ev: any) {
     this.selectedDate = ev.detail.value;
     console.log('Selected Date:', this.selectedDate);
@@ -248,6 +351,10 @@ export class DetailsPage implements OnInit {
     else if (str == 'ready' && this.getActiveIndex() == 11)
       return "visible";
     return "hidden";
+  }
+
+  clear(){
+    this.apiError = false;
   }
 
 }

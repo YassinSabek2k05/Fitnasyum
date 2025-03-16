@@ -42,13 +42,14 @@ ion-searchbar::part(cancel-button) {
 }
 
 #recent-searches ion-card {
+    font-size: 50pt;
     color: var(--ion-color-textcolor);
     border-radius: 25px;
     margin: 5px;
 }
 
 #recent-searches ion-card-content {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 #recent-searches-title ion-title {

@@ -13,7 +13,10 @@
   --input-wrapper:var(--ion-color-background);
 
   }
-
+  ion-input{
+    --border-color: var(--ion-color-bordercolor);
+    --color: var(--ion-color-textcolor);
+  }
   
   :root {
     --picker-highlight-background: rgba(0, 123, 255, 0.1); /* Background color */

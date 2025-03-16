@@ -100,13 +100,13 @@
         <ion-col size="1"></ion-col>
         <ion-col size="10">
           <form>
-            <ion-input labelPlacement="stacked" label="Full Name" type="text" placeholder="Enter Your Full Name"></ion-input>
-            <ion-input labelPlacement="stacked" label="Email" type="Email" placeholder="Enter Your Email"></ion-input>
-            <ion-input labelPlacement="stacked" label="Mobile" type="text" placeholder="Enter Your Phone Number"></ion-input>
-            <ion-input labelPlacement="stacked" label="Password" placeholder="Enter Your Password" type="Password"></ion-input>
+            <ion-input [(ngModel)]="fullname" labelPlacement="stacked" label="Full Name" type="text" name="fullname" placeholder="Enter Your Full Name"></ion-input>
+            <ion-input [(ngModel)]="email" labelPlacement="stacked" label="Email" type="email" name="email" placeholder="Enter Your Email"></ion-input>
+            <ion-input [(ngModel)]="phoneNumber" labelPlacement="stacked" label="Mobile" type="text" name="phoneNumber" placeholder="Enter Your Phone Number"></ion-input>
+            <ion-input [(ngModel)]="password" labelPlacement="stacked" label="Password" type="password" name="password" placeholder="Enter Your Password"></ion-input>
             <div>By creating an account, you agree to our 
               <a href="/">Terms of Service</a> and <a href="/">Privacy Policy</a></div>
-            <ion-button shape="round" (click)="switchMode()">Next</ion-button>
+            <ion-button shape="round" (click)="signup()">Next</ion-button>
           </form>
         </ion-col>
       </ion-row>
@@ -132,4 +132,23 @@
   subHeader="Retry Again"
   [buttons]="alertButtons"
   (didDismiss)="showWrongOTP(false)">
+</ion-alert>
+<ion-alert
+  [isOpen]="formError"
+  header="Error."
+  [subHeader]="formErrorMSG"
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
+</ion-alert>
+<ion-loading
+  [isOpen]="isLoading"
+  message="Processing..."
+  spinner="crescent">
+</ion-loading>
+<ion-alert
+  [isOpen]="apiError"
+  header="Signup Failed"
+  [subHeader]="apiErrorMessage"
+  [buttons]="alertButtons"
+  (didDismiss)="clear()">
 </ion-alert>

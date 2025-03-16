@@ -17,8 +17,8 @@
 <ion-header>
   <ion-toolbar class="custom-header">
     <div class="header-content">
-      <h1><span class="green-txt">Hey,</span> Ahmed</h1>
-      <ion-img class="profile-img" src="assets/female.png"></ion-img>
+      <h1><span class="green-txt">Hey,</span> {{ userName }}</h1>
+      <ion-img class="profile-img" src="assets/female.png" (click)="openPopover($event)"></ion-img>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -31,7 +31,7 @@
     <swiper-container slides-per-view="2.5" #swiper [allowTouchMove]="false" class="workout-slider">
       <swiper-slide *ngFor="let workout of workouts">
         <div class="workout-card">
-          <img  routerLink="/details/1" [src]="workout.image" sty [alt]="workout.title" />
+          <img [src]="workout.image" sty [alt]="workout.title" />
           <h3>{{ workout.title }}</h3>
         </div>
       </swiper-slide>
@@ -72,3 +72,12 @@
     </swiper-container>
   </section>
 </ion-content>
+
+<!-- Popover for Profile Options -->
+<ion-popover [isOpen]="isPopoverOpen" [event]="popoverEvent" (didDismiss)="isPopoverOpen = false">
+  <ng-template>
+    <ion-list>
+      <ion-item button (click)="logout()">Logout</ion-item>
+    </ion-list>
+  </ng-template>
+</ion-popover>

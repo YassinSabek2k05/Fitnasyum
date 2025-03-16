@@ -1,13 +1,6 @@
-*{
-}
-.back-button{
-    position: absolute;
-    z-index: 1000;
-    font-size: 2.5rem;
-    padding: 15px;
-}
-.back-button{
-    cursor: pointer;
+video{
+
+    width: 100%;
 }
 .hide{
     display: none;
@@ -15,23 +8,15 @@
 .show{
     display: block;
 }
-.top-image{
+.background{
     width: 100%;
     overflow: hidden; 
     position: absolute;
     display: flex;
     flex-direction: column;
     align-content: space-between;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
 }
-img{
-    width: 105%;
-    height: auto;
-    max-height: 100vh;
-}
-.top-image::after{
+.background::after{
     content: "";
     position: absolute;
     top: 0;
@@ -39,41 +24,6 @@ img{
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-}
-.play-btn {
-    width: 15vw;
-    height:15vw;
-    background-color: var(--ion-color-primary); /* Use primary color */
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: absolute;
-    top:20%;
-    z-index: 1000;
-  }
-  
-  .play-btn:hover {
-    background-color: var(--ion-color-primary);
-  }
-  
-  .triangle {
-    width: 0;
-    height: 0;
-    border-left: 5vw solid white;
-    border-top: 3vw solid transparent;
-    border-bottom: 3vw solid transparent;
-    position: relative;
-    left: 3px;
-  }
-.bottom-details{
-    position: absolute;
-    bottom: 0;
-    height:55vh;
-    width: 100vw;
-    background: rgba(0,0,0,0.8);
 }
 .img{
     width: 100%;
@@ -86,92 +36,4 @@ img{
     padding: 0px;
     border: 1px solid var(--ion-color-bordercolor);
     margin-bottom: 20px;
-}
-.setDetailsContainer{
-    display: flex;
-    justify-content: space-evenly;
-    border: 1px white solid;
-    padding: 5%;
-    border-radius: 15px;
-}
-.setDetailsContainer strong{
-    font-size: 1.3rem;
-    color: var(--ion-color-primary);
-    margin-right: 3px;
-}
-.workout-title ion-label{
-    font-size: 2rem;
-    font-weight: bold;
-}
-.workout-title{
-    margin-top: 4vh;
-    margin-bottom: 2vh;
-}
-//workout
-.videoPoster{
-    position: absolute;
-
-    z-index: -1;
-}
-.videoPoster img{
-    min-height: 100vh;
-    width: 100vw;
-}
-.videoPoster::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 10;
-}
-
-ion-progress-bar{
-    width:100%;
-    margin: 6px 5px;
-}
-.bottom-controls{
-    position: fixed;
-    bottom: 10px;
-    width: 96vw;
-}
-ion-icon{
-    margin:0;
-    align-items: right;
-}
-.countDown{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.control-buttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.moves-left{
-    margin-bottom: 5%;
-}
-.moves-left strong{
-    font-size:2.5rem;
-    color: var(--ion-color-primary);
-    font-weight: bold;
-}
-.moves-left span{
-    font-size: 1.5rem;
-    color: var(--ion-color-primary);
-}
-.nextExcercise{
-    display: flex;
-    justify-content: flex-end;
-}
-.nextExcercise ion-button{
-    --background: white;
-    font-size: 0.6rem;
-}
-.workoutTitle{
-    font-size: 1.6rem;
-    font-weight: bold;
 }

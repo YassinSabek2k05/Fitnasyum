@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,8 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupPage implements OnInit {
 
+  fullname : string = '';
+  email : string = '';
+  phoneNumber : string = '';
+  password : string = '';
+  formError: boolean = false;
+  formErrorMSG: string = '';
+  isLoading: boolean = false;
+  apiError: boolean = false;
+  apiErrorMessage: string = '';
+
   alertButtons = ['Ok'];
   state: boolean = true;
+
+  apiUrl: string = 'https://fitnasyumapis.laviedentalcenter.com/auth/signup';
+
   switchMode(){
     this.state = !this.state;
   }
@@ -21,13 +36,78 @@ export class SignupPage implements OnInit {
       return 'hidden';
     }
   }
-  constructor() {
-       }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit() {
   }
+
+  inputValidation() {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+    if (!this.fullname?.trim() || this.fullname.length < 8)
+      return this.setError('Full name must be at least 8 characters.');
+    
+    if (!this.email || !emailPattern.test(this.email))
+      return this.setError('Please enter a valid email address.');
+  
+    if (!this.phoneNumber || this.phoneNumber.length !== 11 || isNaN(Number(this.phoneNumber)))
+      return this.setError('Phone number should be 11 digits and contain only numbers.');
+  
+    if (!this.password || this.password.length < 8)
+      return this.setError('Password must be at least 8 characters long.');
+  
+    this.formError = false;
+
+    return true;
+  }
+  
+  setError(msg: string) {
+    this.formErrorMSG = msg;
+    this.formError = true;
+  }
+  
+  signup() {
+    if(this.inputValidation()) {
+      this.switchMode();
+    }
+  }
+
+  signupApi() {
+    this.isLoading = true;
+    const signupData = {fullname: this.fullname, email: this.email, mobile: this.phoneNumber, passwd: this.password};
+
+    this.http.post(this.apiUrl, signupData).subscribe({
+      next: (response: any) => {
+        this.isLoading = false;
+        if (response?.result) { 
+          localStorage.setItem('userName', response.data?.fullname || 'User');
+          localStorage.setItem("token", response.data?.secure_key || '');
+          localStorage.setItem("fitnasyum_backend_data", JSON.stringify(response?.data || {}));
+          
+          setTimeout(() => {
+            this.router.navigate(['/details']).then(() => {
+              window.location.reload();
+            });
+          }, 100); 
+        } else {
+          this.apiErrorMessage = response?.message || 'Unexpected error occurred';
+          this.apiError = true;
+          console.log(response);
+        }
+      },
+      error: (error) => {
+        this.isLoading = false;
+        this.apiErrorMessage = error?.error?.message || 'An error occurred while logging in';
+        this.apiError = true;
+      }
+    });
+  }
+
   myString: string = "";
-  otp: string = "";
+  otp: string = "1234";
   generateOTP(){
     while(this.otp.length<4){
       this.otp += ""+(Math.floor(Math.random() * (9 - 0 + 1)) + 0);
@@ -62,8 +142,7 @@ export class SignupPage implements OnInit {
           this.myString += value;
           console.log('4 digits: ', this.myString);
           if(this.myString == this.otp){
-            this.showCorrectOTP(true);
-            console.log('OTP Matched');
+            this.signupApi();
           }
           else{
             this.showWrongOTP(true);
@@ -92,6 +171,10 @@ export class SignupPage implements OnInit {
   }
   showWrongOTP(flag: boolean){
     this.wrongOTP = flag;
+  }
+
+  clear(){
+    this.formError = false;
   }
 
 }
