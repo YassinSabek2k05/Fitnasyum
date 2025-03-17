@@ -1,6 +1,15 @@
+$white-block-padding-height: 10px;
 ion-tab-bar {
     background: black;
     --background: black;
 }
-
-
+.white-block-padding {
+    width: 100%;
+    height: $white-block-padding-height;
+    // background: #F4F5F8;
+    background: var(--ion-color-primary-contrast);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    // @include box-shadow-top;
+}

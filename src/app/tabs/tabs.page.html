@@ -1,6 +1,8 @@
 <ion-tabs>
   <!--   <ion-router-outlet></ion-router-outlet> -->
-  <ion-tab-bar slot="bottom">
+  <div class="white-block-padding"></div>
+
+  <ion-tab-bar [style.padding-bottom]="paddingBottomValue" slot="bottom" mode="ios" class="main-tab-bar">
     <ion-tab-button tab="home">
       <ion-icon name="home"></ion-icon>
       <ion-label>Home</ion-label>
@@ -16,7 +18,7 @@
       <ion-label>Notifications</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button class="custom-tab">
+    <ion-tab-button tab="myplan" class="custom-tab">
       <ion-icon style="width: 28px;height: 28px;" src="assets/myplanico.svg"></ion-icon>
       <ion-label>My Plan</ion-label>
     </ion-tab-button>
