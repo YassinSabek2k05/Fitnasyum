@@ -414,29 +414,6 @@ export class ApisService {
       });
   }
 
-  fromBarCodeToPoints(qrCodeValue: string) {
-    const token = 'c6d01ceb06b92a7ceca9a9b0db410ff1';
-    this.fun.presentLoader();
-    this.post('wallet/FromCodeToPoints', {
-      token: token,
-      customer_id: this.CustomerData.id_customer,
-      qr_code: qrCodeValue,
-    })
-      .then((res) => {
-        console.log(res);
-        if (res?.result) {
-          this.fun.presentToast(res.message || 'Success', false, 'bottom', 10000);
-        } else {
-          this.fun.errorToast(res?.message || 'Error');
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        this.fun.loadingController.dismiss();
-      });
-  }
 
   getUserLastNotification() {
     this.post('notifications/GetLastNotif', { user_id: this.CustomerData?.id_customer })

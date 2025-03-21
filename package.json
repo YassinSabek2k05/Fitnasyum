@@ -30,7 +30,6 @@
     "@ionic/angular": "^8.0.0",
     "crypto-js": "^4.2.0",
     "ionicons": "^7.0.0",
-    "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "~7.8.0",
     "swiper": "^11.2.2",
     "tslib": "^2.3.0",

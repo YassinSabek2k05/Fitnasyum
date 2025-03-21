@@ -7,6 +7,9 @@
 ion-content {
     --background: #141414;
 }
+ion-header ion-toolbar:first-of-type {
+    padding-top: var(--ion-safe-area-top, 0);
+}
 .custom-header {
     --background: #141414; /* Dark theme */
     --color: white; /* Text color */
