@@ -23,7 +23,7 @@ export class SignupPage implements OnInit {
   alertButtons = ['Ok'];
   state: boolean = true;
 
-  apiUrl: string = 'https://fitnasyumapis.laviedentalcenter.com/auth/signup';
+  apiUrl: string = 'https://fitnasyumapis.the-marketscene.com/auth/signup';
 
   switchMode(){
     this.state = !this.state;

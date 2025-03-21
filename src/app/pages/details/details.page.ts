@@ -51,7 +51,7 @@ export class DetailsPage implements OnInit {
   apiError: boolean = false;
   apiErrorMessage: string = '';
   alertButtons = ['Retry'];
-  apiUrl = "https://fitnasyumapis.laviedentalcenter.com/auth/insertCustomerHealthInfo";
+  apiUrl = "https://fitnasyumapis.the-marketscene.com/auth/insertCustomerHealthInfo";
   constructor(
     public fun: FunctionsService,
     private http: HttpClient,

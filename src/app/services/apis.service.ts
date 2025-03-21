@@ -39,8 +39,8 @@ interface ApiResponse {
   providedIn: 'root',
 })
 export class ApisService {
-  urlPrefix = 'https://fitnasyumapis.laviedentalcenter.com/';
-  urlPrefixPayment = 'https://fitnasyumapis.laviedentalcenter.com/';
+  urlPrefix = 'https://fitnasyumapis.the-marketscene.com/';
+  urlPrefixPayment = 'https://fitnasyumapis.the-marketscene.com/';
   encryptionKey: string = 'MarketSceneJP';
   CustomerData: User = {};
   homepageSlider: string[] = ['', '', ''];
