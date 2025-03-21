@@ -15,6 +15,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/items/items.module').then(m => m.ItemsPageModule)
       },
       {
+        path: 'item-details/:id',
+        loadChildren: () => import('../pages/item-details/item-details.module').then(m => m.ItemDetailsPageModule),
+      },
+      {
         path: 'discover',
         loadChildren: () => import('../discover/discover.module').then(m => m.DiscoverPageModule)
       },

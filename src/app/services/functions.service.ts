@@ -7,6 +7,7 @@ import { ToastController, NavController, AlertController, LoadingController, Act
 })
 export class FunctionsService {
   searchHistoryArray = [];
+  activeItemDetailData: any;
   constructor(private router: Router,
     public loadingController: LoadingController,
     private toastController: ToastController,

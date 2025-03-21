@@ -1,0 +1,37 @@
+<div class="back-button">
+  <ion-icon routerLink="/tabs" name="chevron-back-outline"></ion-icon>
+</div>
+
+<ion-content fullscreen="true">
+  <!-- Workout Image with Play Button -->
+  <div class="workout-image">
+    <img [src]="'https://fitnasyum-admin.laviedentalcenter.com/uploads/'+this.fun.activeItemDetailData?.main_image"
+      alt="Workout">
+    <div class="play-button">
+      <ion-icon name="play"></ion-icon>
+    </div>
+  </div>
+
+  <!-- Stats Box -->
+  <div class="stats-container">
+    <div class="stat">
+      <span class="stat-value">16</span>
+      <span class="stat-label">moves</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">12</span>
+      <span class="stat-label">sets</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">30</span>
+      <span class="stat-label">min</span>
+    </div>
+  </div>
+
+  <!-- Workout Info -->
+  <div class="workout-info">
+    <h1>{{this.fun.activeItemDetailData?.title}}</h1>
+    <p [innerHTML]="this.fun.activeItemDetailData?.description">
+    </p>
+  </div>
+</ion-content>

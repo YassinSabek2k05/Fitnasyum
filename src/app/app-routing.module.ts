@@ -33,12 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule), 
-    canActivate: [AuthGuard],
-  },  
-  {
-    path: 'details/:id',
-    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule),
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate: [AuthGuard],
   }
 
